@@ -1,0 +1,327 @@
+@layer bootstrap, customStyle;
+@import url('bootstrap.min.css') layer(bootstrap);
+
+
+
+
+@layer customStyle{
+	/*mobile breakpoint*/
+	@media only screen and (max-width:768px  ){
+		
+		.header_orange_theme{
+			background-color:#FF6900;
+			border-bottom-style:solid;
+			border-color:#2222DA;
+		}
+		.header_SmartBrainzicon{
+			min-width:50px;
+			max-width:10%;
+			margin:1%;
+			margin-left:2%;
+			margin-right:2%;
+			float:left;
+			
+			
+			
+		}
+		
+		.header_title{
+			font-size:3em;
+			color:#2222DA;
+			
+		}
+		
+		.clearfix::after {
+  			content: "";
+ 			 clear: both;
+			display: table;
+		}
+		
+		.container_studentsbg{
+			background-image:url('/Media/Img/student_bg.png');
+			background-size:cover;
+			width:100%;
+			display:flex;
+			flex-direction:column;
+			flex-wrap:wrap;
+			justify-content:center;
+			align-items:center;
+			
+			
+			
+		}
+		
+		.h500{
+			height:500px;
+		}
+		
+		.main_title{
+			font-size:4em;
+			color:#9082E1;
+			text-align:center;
+		}
+		
+		.white_text{
+			color:white;
+		
+		}
+
+
+		.centerText{
+			text-align:center;
+			
+		}
+		.btn{
+			background-color:#2222DA;
+			display:block;
+			color:#FF6900;
+			width:60%;
+			font-size:2em;
+			border-radius:50px;
+		}
+		
+		.containerOrange{
+			width:100%;
+			background-color:#FF6900;
+			display:flex;
+			flex-direction:column;
+			flex-wrap:wrap;
+			justify-content:space-around;
+			align-items:center;
+			margin
+			
+		}
+		
+		.container_title{
+			font-size:2.5em;
+			color:#2222DA;
+			
+		}
+		
+		.card{
+			background-color:inherit;
+			border-style:solid;
+			border-color:#2222DA;
+			border-width:5px;
+			width:80%;
+			display:flex;
+			flex-direction:row;
+			margin-top:10px;
+			padding:5px;
+			margin-bottom:5px;
+			
+			
+		}
+		
+		.card img{
+			max-width:30%;
+			
+			
+		}
+		
+		.card p{
+			
+			text-align:left;
+		}
+		
+		.font50{
+			font-size:200%;
+			
+		}
+		
+		
+		.footer{
+			background-color:#2222DA;
+			width:100%;
+			position:absolute;
+			min-height:50px;
+			padding-left:10px;
+			padding-right:10px;
+			padding-top:5px;
+			padding-bottom:5px;
+			
+		}
+		
+		.footer .snIcon{
+			margin-left:30px;
+			
+		}
+			
+			
+		
+		.snIcon img{
+			width:10%;
+			
+		}
+		
+		.header_input{
+			display:none;
+			
+		}
+	
+	}
+	
+	@media only screen and (min-width:769px  ){
+		
+		
+		
+		.header_input{
+			display:block;
+		
+		}
+		
+		.header_orange_theme{
+			background-color:#FF6900;
+			border-bottom-style:solid;
+			border-color:#2222DA;
+			display:grid;
+			grid-template-columns:50px auto auto auto;
+			column-gap:5%;
+		}
+		
+		.header_SmartBrainzicon{
+			min-width:50px;
+			max-width:10%;
+			margin:1%;
+			margin-left:2%;
+			margin-right:2%;
+			float:left;
+			
+			
+			
+		}
+		
+		.header_title{
+			font-size:3em;
+			color:#2222DA;
+			display:block;
+			width:100%;
+			
+		}
+		
+		.clearfix::after {
+  			content: "";
+ 			 clear: both;
+			display: table;
+		}
+		
+		.container_studentsbg{
+			background-image:url('/Media/Img/student_bg.png');
+			background-size:cover;
+			width:100%;
+			display:flex;
+			flex-direction:column;
+			flex-wrap:wrap;
+			justify-content:center;
+			align-items:center;
+			
+			
+			
+		}
+		
+		.h500{
+			height:500px;
+		}
+		
+		.main_title{
+			font-size:4em;
+			color:#9082E1;
+			text-align:center;
+		}
+		
+		.white_text{
+			color:white;
+		
+		}
+
+
+		.centerText{
+			text-align:center;
+			
+		}
+		.btn{
+			background-color:#2222DA;
+			display:block;
+			color:#FF6900;
+			width:60%;
+			font-size:2em;
+			border-radius:50px;
+		}
+		
+		.containerOrange{
+			width:100%;
+			background-color:#FF6900;
+			display:flex;
+			flex-direction:column;
+			flex-wrap:wrap;
+			justify-content:space-around;
+			align-items:center;
+			margin
+			
+		}
+		
+		.container_title{
+			font-size:2.5em;
+			color:#2222DA;
+			
+		}
+		
+		.card{
+			background-color:inherit;
+			border-style:solid;
+			border-color:#2222DA;
+			border-width:5px;
+			width:80%;
+			display:flex;
+			flex-direction:row;
+			margin-top:10px;
+			padding:5px;
+			margin-bottom:5px;
+			
+			
+		}
+		
+		.card img{
+			max-width:30%;
+			
+			
+		}
+		
+		.card p{
+			
+			text-align:left;
+		}
+		
+		.font50{
+			font-size:200%;
+			
+		}
+		
+		
+		.footer{
+			background-color:#2222DA;
+			width:100%;
+			position:absolute;
+			min-height:50px;
+			padding-left:10px;
+			padding-right:10px;
+			padding-top:5px;
+			padding-bottom:5px;
+			
+		}
+		
+		.footer .snIcon{
+			margin-left:30px;
+			
+		}
+			
+			
+		
+		.snIcon img{
+			width:10%;
+			
+		}
+		
+		
+	
+}
