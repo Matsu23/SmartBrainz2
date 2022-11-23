@@ -1,7 +1,7 @@
 
 <?php
 
-
+/*
 
 function testLogin(){	
 	if(isset($_SESSION["User"])){
@@ -23,5 +23,5 @@ function logOut(){
 	header('location:/Index.php');
 	
 };
-
+*/
 ?>

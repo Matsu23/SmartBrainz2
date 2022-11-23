@@ -5,7 +5,13 @@
 
 
 @layer customStyle{
-	/*mobile breakpoint*/
+	
+	*{
+		
+		font-family: sans-serif;
+	}
+	
+	/*regras de estilo para dispositivos mobile*/
 	@media only screen and (max-width:768px  ){
 		
 		.header_orange_theme{
@@ -160,28 +166,52 @@
 		}
 	
 	}
-	
+	/*regras de estilo para computadores*/
 	@media only screen and (min-width:769px  ){
 		
 		
 		
 		.header_input{
+			display:flex;
+			align-items:center;
+			margin-bottom:3%;
+			margin:3%;
+			flex-wrap:wrap;
+		
+			
+		}
+		.header_input label,input{
 			display:block;
+		}
+		
+		.header_input label{
+			color:#2222DA;
+			font-size:3em;
 		
 		}
+		
+		.header_input input{
+			min-width:200px;
+			max-width:500px;
+			height:50px;
+			border-radius:10px;
+			font-size:200%;
+		}
+		
 		
 		.header_orange_theme{
 			background-color:#FF6900;
 			border-bottom-style:solid;
 			border-color:#2222DA;
-			display:grid;
-			grid-template-columns:50px auto auto auto;
-			column-gap:5%;
+			display:flex;
+			flex-direction:row;
+			align-items:end;
+			flex-wrap:wrap;
 		}
 		
 		.header_SmartBrainzicon{
 			min-width:50px;
-			max-width:10%;
+			max-width:5%;
 			margin:1%;
 			margin-left:2%;
 			margin-right:2%;
@@ -189,13 +219,14 @@
 			
 			
 			
+			
 		}
 		
 		.header_title{
-			font-size:3em;
+			font-size:4em;
 			color:#2222DA;
 			display:block;
-			width:100%;
+			
 			
 		}
 		
