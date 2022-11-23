@@ -1,11 +1,12 @@
 <?php
-include('conectar.php');
+include_once('conectar.php');
 
 function Executar($query){
 	if($result=mysqli_query($GLOBALS['conexao'], $query)){
 		 return $result;
 	}else{
 		echo "erro ao executar a query sql" . mysqli_error($GLOBALS['conexao']);
+		return false;
 	}
 	
 	
@@ -42,8 +43,8 @@ function Create(array $campos, array $valores, $tabela){
 	}
 	
 	
-	Executar($sql);
-	return 0;
+	return Executar($sql);
+	
 };
 
 

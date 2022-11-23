@@ -4,13 +4,17 @@
 
 <?php
 
-include('API/login.php');
-
+include_once('API/login.php');
+include_once('API/cadastrar.php');
 
 
 
 logIn();
-
+cadastro();
+include_once('API/sessionManeger.php');
+if((testLogin())){
+	echo "<script>window.location.href = 'Timeline.php';</script>";
+};
 
 ?>
 
@@ -71,7 +75,18 @@ logIn();
 		</div>
 	</main>
 	
-	
+	<div class='container' style='position:absolute;background-color:#0B023A;z-index:1000;bottom:40%;margin:auto;left:10%;border-style:solid;border-color:#FF6900;border-width:5px;border-radius:10px;'>
+		<h1 class='text-white text-center' style='border-bottom-style:solid;border-color:#FF6900;'>CADASTRE SUA CONTA</h1>
+		<form style='display:block;width:auto;font-size:2em;' class=' container m-5' action="<?php echo $_SERVER['PHP_SELF'] ?>" method='post' >
+		<label class='text-white text-center '>Email</label><br/>
+		<input type='email' id='mailCadastro' name='mailCadastro' /><br/>
+		<label class='text-white text-center '>Usuario</label><br/>
+		<input type='text'  id='userCadastro' name='userCadastro' /><br/>
+		<label class='text-white text-center'>Senha</label><br/>
+		<input type='password' id='passCadastro' name='passCadastro'/><br/>
+		<input  class='btn-block m-5 ' type='submit' value='CADASTRAR' style='background-color:#2222DA;border-style:none;border-radius:10px;width:50%;height:75px;font-size:2em;color:#FF6900;'></input>
+		</form>
+	</div>
 	
 </body>
 </html>

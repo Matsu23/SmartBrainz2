@@ -1,7 +1,10 @@
 
 <?php
 
-/*
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 function testLogin(){	
 	if(isset($_SESSION["User"])){
@@ -23,5 +26,5 @@ function logOut(){
 	header('location:/Index.php');
 	
 };
-*/
+
 ?>
