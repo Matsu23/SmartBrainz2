@@ -22,6 +22,9 @@ if((testLogin())){
 <link rel='stylesheet' href='CSS/bootstrap.min.css'>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta charset="UTF-8">
+<script>
+
+</script>
 </head>
 <body>
 	<header class=" container-fluid row " style='background-color:#FF6900;color:#2222DA;font-family:sans-serif'>
@@ -75,7 +78,7 @@ if((testLogin())){
 		</div>
 	</main>
 	
-	<div class='container' style='position:absolute;background-color:#0B023A;z-index:1000;bottom:40%;margin:auto;left:10%;border-style:solid;border-color:#FF6900;border-width:5px;border-radius:10px;'>
+	<div class='container' style='position:absolute;background-color:#0B023A;z-index:1000;bottom:40%;margin:auto;left:10%;border-style:solid;border-color:#FF6900;border-width:5px;border-radius:10px;display:none;'>
 		<h1 class='text-white text-center' style='border-bottom-style:solid;border-color:#FF6900;'>CADASTRE SUA CONTA</h1>
 		<form style='display:block;width:auto;font-size:2em;' class=' container m-5' action="<?php echo $_SERVER['PHP_SELF'] ?>" method='post' >
 		<label class='text-white text-center '>Email</label><br/>
