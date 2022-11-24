@@ -18,33 +18,30 @@ USE `smartbrainz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usertbl`
+-- Table structure for table `posttbl`
 --
 
-DROP TABLE IF EXISTS `usertbl`;
+DROP TABLE IF EXISTS `posttbl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usertbl` (
-  `idUser` int NOT NULL AUTO_INCREMENT,
-  `userName` varchar(45) NOT NULL,
-  `userMail` varchar(45) NOT NULL,
-  `userPassword` varchar(45) NOT NULL,
-  `userImg` varchar(45) DEFAULT 'UserData/Default/icon.png',
-  `userDescription` varchar(500) DEFAULT 'Olá,essa é minha conta smartbrainZ',
-  PRIMARY KEY (`idUser`),
-  UNIQUE KEY `userName_UNIQUE` (`userName`),
-  UNIQUE KEY `userMail_UNIQUE` (`userMail`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `posttbl` (
+  `idPost` int NOT NULL AUTO_INCREMENT,
+  `idUser` int NOT NULL,
+  `contentPost` varchar(45) NOT NULL,
+  PRIMARY KEY (`idPost`),
+  KEY `idUser_idx` (`idUser`),
+  CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usertbl`
+-- Dumping data for table `posttbl`
 --
 
-LOCK TABLES `usertbl` WRITE;
-/*!40000 ALTER TABLE `usertbl` DISABLE KEYS */;
-INSERT INTO `usertbl` VALUES (1,'nometeste','mail@teste.com','senhateste','UserData/Default/icon.png','Olá,essa é minha conta smartbrainZ'),(132,'teste2','mail@teste2.com','senhateste','UserData/Default/icon.png','Olá,essa é minha conta smartbrainZ');
-/*!40000 ALTER TABLE `usertbl` ENABLE KEYS */;
+LOCK TABLES `posttbl` WRITE;
+/*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
+INSERT INTO `posttbl` VALUES (1,1,'rtrtr'),(2,1,'sdasdasdsadasdasdasd');
+/*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-23 22:45:36
+-- Dump completed on 2022-11-23 22:45:37
