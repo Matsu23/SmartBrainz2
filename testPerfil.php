@@ -5,9 +5,9 @@
 <?php
 
 include_once('API/sessionManeger.php');
-include_once('API/post.php');
-echo $_SESSION["User"];
-postDiscussion();
+include_once('API/perfil.php');
+
+alterDescription();
 ?>
 
 <link rel='stylesheet' href='CSS/normalize.css'>
@@ -18,8 +18,8 @@ postDiscussion();
 </head>
 <body>
 	<form  action="<?php echo $_SERVER['PHP_SELF'] ?>" method='post'>
-		<textarea name='post' id='post'></textarea>
-		<input type='submit' value='postar'/>
+		<input type='text' name='desc' id='desc'></input>
+		<input type='submit' value='editarDesc'/>
 	</form>
 	
 </body>

@@ -51,7 +51,12 @@ function Create(array $campos, array $valores, $tabela){
 function read($tabela,$condition){
 	$sql = "select * from ".$tabela." ".$condition.";";
 	if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
-		return $rowsValue=mysqli_fetch_assoc($queryResult);
+		/*return $rowsValue=mysqli_fetch_assoc($queryResult);*/
+		$data = array();
+		 while($row = mysqli_fetch_assoc($queryResult)){
+			 $data[] = $row; 
+		 }
+		 return $data;
 		echo "deu certo";
 	}else{
 		return false;
@@ -61,7 +66,26 @@ function read($tabela,$condition){
 }
 	
 	
-
+function update(array $campos, array $valores, $tabela,$condition){
+	$sql = "UPDATE $tabela \n";
+	
+	$sql .="SET ";
+	for ($x = 0; $x <= count($campos)-1; $x++) {
+			if($x<(count($campos)-1)){
+				
+				$sql .= $campos[$x]."='".$valores[$x]."',";
+				
+			} else {
+				$sql .= $campos[$x]."='".$valores[$x]."'";
+				
+			}
+		
+	}
+	$sql .= "\n ".$condition;
+	print_r($sql);
+	echo "<br>";
+	return Executar($sql);
+}
 
 
 ?>

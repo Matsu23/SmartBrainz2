@@ -15,7 +15,7 @@ function logIn(){
 			echo "<script>alert('erro ao realizar login');</script>";
 		}else{
 			include_once('sessionManeger.php');
-			loginSession($userTbl['idUser'],$userTbl['userName']);
+			loginSession($userTbl[0]['idUser'],$userTbl[0]['userName']);
 			echo "<script>alert('login realizado com sucesso');</script>";
 			return true;
 		}
