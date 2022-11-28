@@ -5,8 +5,8 @@ function Executar($query){
 	if($result=mysqli_query($GLOBALS['conexao'], $query)){
 		 return $result;
 	}else{
-		echo "erro ao executar a query sql" . mysqli_error($GLOBALS['conexao']);
-		return false;
+		return "erro ao executar a query sql" . mysqli_error($GLOBALS['conexao']);
+		/*return false;*/
 	}
 	
 	
@@ -73,7 +73,7 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 	if(!isset($select) ){
 		$sql .=  "*";
 	}else{
-		echo "<script>alert('teste campos valores');</script>";
+		
 		for ($x = 0; $x <= count($select)-1; $x++) {
 			if($x<(count($select)-1)){
 				$sql .= $select[$x].",";
@@ -109,7 +109,7 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 		}
 	}
 	if($join==1){
-		echo "<script>alert('teste join');</script>";
+		
 		if(count($joinIndex)>0){
 			$sql.="\n INNER JOIN ".$joinIndex[0]." ON ".$joinIndex[1]."=".$joinIndex[2];
 			if($limit!=null){
@@ -127,7 +127,10 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 					$data[] = $row; 
 					 
 				}
+				/*return $data;*/
 				return $data;
+			}else{
+				return "noPost";
 			}
 		}
 		
