@@ -47,11 +47,11 @@ function Create(array $campos, array $valores, $tabela){
 	
 };
 
-
-function read($tabela,$condition){
+/*
+function read($tabela,$condition='',innerJoin=false,){
 	$sql = "select * from ".$tabela." ".$condition.";";
 	if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
-		/*return $rowsValue=mysqli_fetch_assoc($queryResult);*/
+	
 		$data = array();
 		 while($row = mysqli_fetch_assoc($queryResult)){
 			 $data[] = $row; 
@@ -64,7 +64,82 @@ function read($tabela,$condition){
 	}
 	
 }
+*/
+
+
+
+function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=null,$limit=null,$offset=null){
+	$sql = "select ";
+	if(!isset($select) ){
+		$sql .=  "*";
+	}else{
+		echo "<script>alert('teste campos valores');</script>";
+		for ($x = 0; $x <= count($select)-1; $x++) {
+			if($x<(count($select)-1)){
+				$sql .= $select[$x].",";
+			}else{
+				$sql .= $select[$x]."\n";
+			}
+		}
+	}
+	$sql .= " FROM ".$tabela." ".$condition;
 	
+	
+	
+	
+	
+	if($join==0){
+		if($limit!=null){
+			$sql .="LIMIT ".$limit;
+		}
+		if($offset!=null){
+			$sql .="OFFSET ".$offset;
+			
+		}
+		
+		$sql .=";";
+		if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
+			$data = array();
+			 while($row = mysqli_fetch_assoc($queryResult)){
+				 $data[] = $row;  
+				 
+				
+			 }
+			 return $data;
+		}
+	}
+	if($join==1){
+		echo "<script>alert('teste join');</script>";
+		if(count($joinIndex)>0){
+			$sql.="\n INNER JOIN ".$joinIndex[0]." ON ".$joinIndex[1]."=".$joinIndex[2];
+			if($limit!=null){
+				$sql .=" LIMIT ".$limit;
+				
+			}
+			if($offset!=null){
+				$sql .=" OFFSET ".$offset;
+			}
+			$sql .=";";
+			
+			if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
+				$data = array();
+				while($row = mysqli_fetch_assoc($queryResult)){
+					$data[] = $row; 
+					 
+				}
+				return $data;
+			}
+		}
+		
+	}
+	
+	
+	
+		
+
+}
+
+
 	
 function update(array $campos, array $valores, $tabela,$condition){
 	$sql = "UPDATE $tabela \n";
