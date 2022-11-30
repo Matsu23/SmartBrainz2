@@ -43,7 +43,7 @@ CREATE TABLE `usertbl` (
 
 LOCK TABLES `usertbl` WRITE;
 /*!40000 ALTER TABLE `usertbl` DISABLE KEYS */;
-INSERT INTO `usertbl` VALUES (1,'nometeste','mail@teste.com','senhateste','UserData/Default/icon.png','Olá,essa é minha conta smartbrainZ'),(132,'teste2','mail@teste2.com','senhateste','UserData/Default/icon.png','Olá,essa é minha conta smartbrainZ');
+INSERT INTO `usertbl` VALUES (1,'nometeste','mail@teste.com','senhateste','Media\\Img\\Avatar.png','teste'),(132,'teste2','mail@teste2.com','senhateste','UserData/Default/icon.png','Olá,essa é minha conta smartbrainZ');
 /*!40000 ALTER TABLE `usertbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-23 22:45:36
+-- Dump completed on 2022-11-30  0:00:12

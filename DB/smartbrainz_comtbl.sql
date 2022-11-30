@@ -18,30 +18,35 @@ USE `smartbrainz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `posttbl`
+-- Table structure for table `comtbl`
 --
 
-DROP TABLE IF EXISTS `posttbl`;
+DROP TABLE IF EXISTS `comtbl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `posttbl` (
-  `idPost` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comtbl` (
+  `idCom` int NOT NULL AUTO_INCREMENT,
+  `idPost` int NOT NULL,
   `idUser` int NOT NULL,
-  `contentPost` varchar(400) NOT NULL,
-  PRIMARY KEY (`idPost`),
-  KEY `idUser_idx` (`idUser`),
-  CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `contentCom` varchar(45) NOT NULL,
+  `subcomment` tinyint DEFAULT NULL,
+  PRIMARY KEY (`idCom`),
+  KEY `post-tbl_idx` (`idPost`),
+  KEY `user-com_idx` (`idUser`),
+  CONSTRAINT `com-com` FOREIGN KEY (`idPost`) REFERENCES `comtbl` (`idCom`),
+  CONSTRAINT `post-com` FOREIGN KEY (`idPost`) REFERENCES `posttbl` (`idPost`),
+  CONSTRAINT `user-com` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `posttbl`
+-- Dumping data for table `comtbl`
 --
 
-LOCK TABLES `posttbl` WRITE;
-/*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
-INSERT INTO `posttbl` VALUES (1,1,'rtrtr'),(2,1,'sdasdasdsadasdasdasd'),(3,1,'ererer'),(53,132,'testemassa'),(54,132,'testemassa'),(55,132,'testemassa'),(56,132,'testemassa'),(57,132,'testemassa'),(58,132,'2'),(59,132,'testemassa'),(60,132,'testemassa'),(61,132,'testemassa'),(62,132,'testemassa'),(63,132,'testemassa'),(64,132,'3'),(65,132,'testemassa'),(66,132,'testemassa'),(67,132,'testemassa'),(68,132,'testemassa'),(69,132,'testemassa'),(70,132,'testemassa'),(71,132,'testemassa'),(72,132,'7'),(73,132,'testemassa'),(74,132,'testemassa'),(75,132,'testemassa'),(76,132,'testemassa'),(77,132,'testemassa'),(78,132,'testemassa'),(79,132,'testemassa'),(80,132,'testemassa'),(81,132,'testemassa'),(82,1,'TESTE BLUBLE');
-/*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
+LOCK TABLES `comtbl` WRITE;
+/*!40000 ALTER TABLE `comtbl` DISABLE KEYS */;
+INSERT INTO `comtbl` VALUES (1,1,1,'rtrt',NULL),(2,1,1,'TESTE COMENTARIO',NULL),(3,3,1,'TESTE COMENTARIO 3',NULL),(4,1,1,'teste comentario uhuuuu',NULL),(5,1,1,'teste comentario mario',NULL);
+/*!40000 ALTER TABLE `comtbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
