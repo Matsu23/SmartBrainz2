@@ -28,10 +28,11 @@ CREATE TABLE `posttbl` (
   `idPost` int NOT NULL AUTO_INCREMENT,
   `idUser` int NOT NULL,
   `contentPost` varchar(400) NOT NULL,
+  `topicPost` varchar(45) NOT NULL,
   PRIMARY KEY (`idPost`),
   KEY `idUser_idx` (`idUser`),
   CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +41,7 @@ CREATE TABLE `posttbl` (
 
 LOCK TABLES `posttbl` WRITE;
 /*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
-INSERT INTO `posttbl` VALUES (1,1,'rtrtr'),(2,1,'sdasdasdsadasdasdasd'),(3,1,'ererer'),(53,132,'testemassa'),(54,132,'testemassa'),(55,132,'testemassa'),(56,132,'testemassa'),(57,132,'testemassa'),(58,132,'2'),(59,132,'testemassa'),(60,132,'testemassa'),(61,132,'testemassa'),(62,132,'testemassa'),(63,132,'testemassa'),(64,132,'3'),(65,132,'testemassa'),(66,132,'testemassa'),(67,132,'testemassa'),(68,132,'testemassa'),(69,132,'testemassa'),(70,132,'testemassa'),(71,132,'testemassa'),(72,132,'7'),(73,132,'testemassa'),(74,132,'testemassa'),(75,132,'testemassa'),(76,132,'testemassa'),(77,132,'testemassa'),(78,132,'testemassa'),(79,132,'testemassa'),(80,132,'testemassa'),(81,132,'testemassa'),(82,1,'TESTE BLUBLE');
+INSERT INTO `posttbl` VALUES (1,1,'rtrtr','mat'),(83,149,'post de mat1','mat'),(84,149,'post de mat2','mat'),(85,149,'post de mat 3','mat'),(86,149,'post de pot','port'),(87,149,'post de pot2','port'),(88,149,'post de geo1','geo'),(89,149,'post de geo2','geo'),(90,149,'post de geo3','geo'),(91,149,'post de geo4','geo'),(92,149,'post de geo5','geo'),(93,149,'post de bio1','bio'),(94,149,'post de bio2','bio'),(95,149,'post de bio3','bio'),(96,149,'post de fis1','fis'),(97,149,'post de fis1','fis'),(98,150,'bolo teste','bio');
 /*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-30  0:00:12
+-- Dump completed on 2022-11-30 17:45:57

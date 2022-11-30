@@ -5,13 +5,14 @@
 
 	<?php
 
-include_once('API/login.php');
-include_once('API/cadastrar.php');
+
+include_once('API/perfil.php');
+
 
 
 
 logIn();
-cadastro();
+
 include_once('API/sessionManeger.php');
 if((testLogin())){
 	echo "<script>window.location.href = 'home.php';</script>";

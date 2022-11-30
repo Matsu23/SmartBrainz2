@@ -19,6 +19,16 @@ createPost();
 <body>
 	<form  action="<?php echo $_SERVER['PHP_SELF'] ?>" method='post'>
 		<textarea name='post' id='post'></textarea>
+		<select name='topico'>
+			<option value="port">Portugues</option>
+			<option value="mat">Matematica</option>
+			<option value="hist">Historia</option>
+			<option value="geo">Geografia</option>
+			<option value="bio">Biologia</option>
+			<option value="fis">Fisica</option>
+			<option value="qui">Quimica</option>
+			<option value="ingl">Inglês</option>	  
+		</select>
 		<input type='submit' value='postar'/>
 	</form>
 	

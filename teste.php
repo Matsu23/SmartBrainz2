@@ -3,9 +3,9 @@
 <head>
 
 <?php
-include_once('API/timeline.php');
-load();
- echo "<script>alert('".$_SESSION["User"]."')</script>";
+include_once('API/crud.php');
+$var=read('userTbl',"WHERE userMail = 'mail@teste2.com' AND userPassword = 'senhateste';");
+print_r($var);
 ?>
 
 

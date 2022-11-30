@@ -96,7 +96,7 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 			$sql .="OFFSET ".$offset;
 			
 		}
-		
+		$sql .=" ".$condition."";
 		$sql .=";";
 		if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
 			$data = array();
@@ -124,13 +124,14 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 				
 			}else{
 				$sql.=" INNER JOIN ".$joinIndex[0]." ON ".$joinIndex[1]."=".$joinIndex[2];
+				$sql .=" ".$condition."";
 				if($limit!=null){
 				$sql .=" LIMIT ".$limit;
 			}
 			if($offset!=null){
 				$sql .=" OFFSET ".$offset;
 			}
-			$sql .=" ".$condition.";";
+			$sql .=";";
 			
 			if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
 				$data = array();

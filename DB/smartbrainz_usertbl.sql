@@ -31,10 +31,11 @@ CREATE TABLE `usertbl` (
   `userPassword` varchar(45) NOT NULL,
   `userImg` varchar(45) DEFAULT 'UserData/Default/icon.png',
   `userDescription` varchar(500) DEFAULT 'Olá,essa é minha conta smartbrainZ',
+  `userComplete` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `userName_UNIQUE` (`userName`),
   UNIQUE KEY `userMail_UNIQUE` (`userMail`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +44,7 @@ CREATE TABLE `usertbl` (
 
 LOCK TABLES `usertbl` WRITE;
 /*!40000 ALTER TABLE `usertbl` DISABLE KEYS */;
-INSERT INTO `usertbl` VALUES (1,'nometeste','mail@teste.com','senhateste','Media\\Img\\Avatar.png','teste'),(132,'teste2','mail@teste2.com','senhateste','UserData/Default/icon.png','Olá,essa é minha conta smartbrainZ');
+INSERT INTO `usertbl` VALUES (1,'nometeste','mail@teste.com','senhateste','Media\\Img\\Avatar.png','teste',1),(132,'teste2','mail@teste2.com','senhateste','UserData/Default/avatar.png','Olá,essa é minha conta smartbrainZ',0),(149,'bilu','mail@bilu.com','bilu','./UserData/bilu/avatar.png','Olá,essa é minha conta smartbrainZ',0),(150,'bolo','mail@bolo.com','bolo','UserData/bolo/avatar.png','Olá,essa é minha conta smartbrainZ',0);
 /*!40000 ALTER TABLE `usertbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-30  0:00:12
+-- Dump completed on 2022-11-30 17:45:57

@@ -5,10 +5,11 @@ function createPost(){
 	if (isset($_POST["post"])){
 		$userId=$_SESSION["ID"];
 		$post=$_POST["post"];
+		$topic=$_POST["topico"];
 		
-		$fields = array("idUser","contentPost");
+		$fields = array("idUser","contentPost","topicPost");
 		$table="posttbl";
-		$values = array($userId,$post);
+		$values = array($userId,$post,$topic);
 		if((Create( $fields, $values, $table))==false){
 				echo "<script>alert('erro realizado com sucesso');</script>";
 			

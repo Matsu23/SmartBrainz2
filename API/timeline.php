@@ -7,6 +7,8 @@ include_once('API/crud.php');
 
 function load(){
 	
+	
+	
 	if(!(isset($_POST["counter"]))){
 		initialLoad();
 		
@@ -19,7 +21,19 @@ function load(){
 	}
 
 function initialLoad(){
-		$posts=read('posttbl','',1,[ 'usertbl.idUser','posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],5);
+		$topicos=json_decode($_SESSION['topics']);;
+		$condition=' WHERE ';
+		for($x = 0; $x <= count($topicos)-1; $x++){
+			if($x<(count($topicos)-1)){
+				$condition.="posttbl.topicPost='".$topicos[$x]."' OR ";
+			}else{
+				$condition.="posttbl.topicPost='".$topicos[$x]."' ";
+			}
+			
+		}
+		
+		$posts=read('posttbl',$condition,1,[ 'usertbl.idUser','posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],5);
+		
 		for ($x = 0; $x <= count($posts)-1; $x++){
 			echo "<a href='post.php?PID=".$posts[$x]['idPost']."'>";
 			echo "<div style='border-style:solid;border-color:red;'>";
@@ -35,7 +49,16 @@ function initialLoad(){
 	
 function loadMore($counter){
 	
-		
+		$topicos=json_decode($_SESSION['topics']);;
+		$condition=' WHERE ';
+		for($x = 0; $x <= count($topicos)-1; $x++){
+			if($x<(count($topicos)-1)){
+				$condition.="posttbl.topicPost='".$topicos[$x]."' OR ";
+			}else{
+				$condition.="posttbl.topicPost='".$topicos[$x]."' ";
+			}
+			
+		}
 		$limit=5;
 		$offset=$counter;
 		$posts=read('posttbl','',1,[ 'usertbl.idUser', 'posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],$limit,$offset);

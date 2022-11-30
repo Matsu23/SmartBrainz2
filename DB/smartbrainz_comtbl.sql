@@ -33,9 +33,9 @@ CREATE TABLE `comtbl` (
   PRIMARY KEY (`idCom`),
   KEY `post-tbl_idx` (`idPost`),
   KEY `user-com_idx` (`idUser`),
-  CONSTRAINT `com-com` FOREIGN KEY (`idPost`) REFERENCES `comtbl` (`idCom`),
-  CONSTRAINT `post-com` FOREIGN KEY (`idPost`) REFERENCES `posttbl` (`idPost`),
-  CONSTRAINT `user-com` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`)
+  CONSTRAINT `com-com` FOREIGN KEY (`idPost`) REFERENCES `comtbl` (`idCom`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post-com` FOREIGN KEY (`idPost`) REFERENCES `posttbl` (`idPost`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `user-com` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,7 +45,7 @@ CREATE TABLE `comtbl` (
 
 LOCK TABLES `comtbl` WRITE;
 /*!40000 ALTER TABLE `comtbl` DISABLE KEYS */;
-INSERT INTO `comtbl` VALUES (1,1,1,'rtrt',NULL),(2,1,1,'TESTE COMENTARIO',NULL),(3,3,1,'TESTE COMENTARIO 3',NULL),(4,1,1,'teste comentario uhuuuu',NULL),(5,1,1,'teste comentario mario',NULL);
+INSERT INTO `comtbl` VALUES (1,1,1,'rtrt',NULL),(2,1,1,'TESTE COMENTARIO',NULL),(4,1,1,'teste comentario uhuuuu',NULL),(5,1,1,'teste comentario mario',NULL);
 /*!40000 ALTER TABLE `comtbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-30  0:00:12
+-- Dump completed on 2022-11-30 17:45:57

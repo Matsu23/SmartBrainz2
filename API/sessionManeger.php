@@ -7,15 +7,16 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 function testLogin(){	
-	if(isset($_SESSION["User"])){
-			
+	if(isset($_SESSION["User"]) && $_SESSION["creationComplete"]==1){
 			 return true;
+			 
 		}
 };
 
-function loginSession($sessionIndex,$user){
+function loginSession($sessionIndex,$user,$creation,$topics=null){
 	$_SESSION["ID"] = $sessionIndex;
 	$_SESSION["User"] = $user;
+	$_SESSION['creationComplete']=$creation;
 	
 	
 };
@@ -26,5 +27,7 @@ function logOut(){
 	header('location:/Index.php');
 	
 };
+
+
 
 ?>
