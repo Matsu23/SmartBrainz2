@@ -82,7 +82,7 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 			}
 		}
 	}
-	$sql .= " FROM ".$tabela." ".$condition;
+	$sql .= " FROM ".$tabela." ";
 	
 	
 	
@@ -106,12 +106,14 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 				
 			 }
 			 return $data;
+		}else{
+			return false;
 		}
 	}
 	if($join==1){
 		
 		if(count($joinIndex)>0){
-			$sql.="\n INNER JOIN ".$joinIndex[0]." ON ".$joinIndex[1]."=".$joinIndex[2];
+			$sql.=" INNER JOIN ".$joinIndex[0]." ON ".$joinIndex[1]."=".$joinIndex[2];
 			if($limit!=null){
 				$sql .=" LIMIT ".$limit;
 				
@@ -119,7 +121,7 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 			if($offset!=null){
 				$sql .=" OFFSET ".$offset;
 			}
-			$sql .=";";
+			$sql .=" ".$condition.";";
 			
 			if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
 				$data = array();
@@ -127,11 +129,12 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 					$data[] = $row; 
 					 
 				}
-				/*return $data;*/
+			
 				return $data;
 			}else{
 				return "noPost";
 			}
+			
 		}
 		
 	}

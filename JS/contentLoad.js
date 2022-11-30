@@ -9,7 +9,7 @@ function loadScroll(){
         alert('fim da pagina');
 		x+=5;
 		const elm = document.createElement("div");
-		fetch("http://localhost/timeline.php", {
+		fetch("http://localhost/home.php", {
 			method: "POST",
 			headers: {
 			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",

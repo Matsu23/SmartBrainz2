@@ -17,35 +17,18 @@ function load(){
 		}
 		
 	}
-	
-	/*if($_POST["counter"]){
-		loadMore($_POST["counter"]);
-	}*/
-	
-
-
-
-
-
-/*function loadMore(){
-	if(isset($_POST["teste"])){
-		echo "fetch enviado";
-		echo $_POST["teste"];
-		
-	}
-	
-}*/
 
 function initialLoad(){
-		$posts=read('posttbl','',1,[ 'posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],5);
+		$posts=read('posttbl','',1,[ 'usertbl.idUser','posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],5);
 		for ($x = 0; $x <= count($posts)-1; $x++){
-			echo "<div style='border-style:solid';border-color:red;>";
+			echo "<a href='post.php?PID=".$posts[$x]['idPost']."'>";
+			echo "<div style='border-style:solid;border-color:red;'>";
 			echo ("idpost:".$posts[$x]['idPost']."<br>");
 			echo ("<img src='".$posts[$x]['userImg']."' style='width:25%;'/><br>");
-			echo ("username:".$posts[$x]['userName']."<br>");
+			echo ("<a href='profile.php?UID=".$posts[$x]['idUser']."'>username:".$posts[$x]['userName']."</a><br>");
 			echo ("conteudo:".$posts[$x]['contentPost']."<br>");
 			echo "</div>";
-			
+			echo "</a>";
 		}
 		return 5;
 	}
@@ -55,16 +38,17 @@ function loadMore($counter){
 		
 		$limit=5;
 		$offset=$counter;
-		$posts=read('posttbl','',1,[ 'posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],$limit,$offset);
+		$posts=read('posttbl','',1,[ 'usertbl.idUser', 'posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],$limit,$offset);
 		if(is_array($posts)){
 			for ($x = 0; $x <= count($posts)-1; $x++){
-				echo "<div style='border-style:solid';border-color:red;>";
+				echo "<a href='post.php?PID=".$posts[$x]['idPost']."'>";
+				echo "<div style='border-style:solid;border-color:red;'>";
 				echo ("idpost:".$posts[$x]['idPost']."<br>");
 				echo ("<img src='".$posts[$x]['userImg']."' style='width:25%;'/><br>");
-				echo ("username:".$posts[$x]['userName']."<br>");
+				echo ("<a href='profile.php?UID=".$posts[$x]['idUser']."'>username:".$posts[$x]['userName']."</a><br>");
 				echo ("conteudo:".$posts[$x]['contentPost']."<br>");
 				echo "</div>";
-			
+				echo "</a>";
 			}
 		
 		}else{
@@ -76,29 +60,45 @@ function loadMore($counter){
 	
 }	
 
-/*
-function load(){
-	
-	$offset=initialLoad();
-	if($offset==5){
-		$posts=read('posttbl','',1,[ 'posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser'],5,$offset);
-		for ($x = 0; $x <= count($posts)-1; $x++){
-			echo "<div style='border-style:solid';border-color:red;>";
-			echo ("idpost:".$posts[$x]['idPost']."<br>");
-			echo ("<img src='".$posts[$x]['userImg']."' style='width:25%;'/><br>");
-			echo ("username:".$posts[$x]['userName']."<br>");
-			echo ("conteudo:".$posts[$x]['contentPost']."<br>");
-			echo "</div>";
+function getPost(){
+	if (isset($_GET["PID"])){
+		$pid=$_GET["PID"];
+		$tabela='posttbl';
+		$condition='WHERE idPost='.$pid;
+		
+		$posts=read('posttbl',$condition,1,[ 'usertbl.idUser', 'posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser']);
+		print_r($posts);
+		if($posts!=false){
 			
+			for ($x = 0; $x <= count($posts)-1; $x++){
+				echo "<div style='border-style:solid;border-color:red;'>";
+				echo ("idpost:".$posts[$x]['idPost']."<br>");
+				echo ("<img src='".$posts[$x]['userImg']."' style='width:25%;'/><br>");
+				echo ("<a href='profile.php?UID=".$posts[$x]['idUser']."'>username:".$posts[$x]['userName']."</a><br>");
+				echo ("conteudo:".$posts[$x]['contentPost']."<br>");
+				echo "</div>";
+				
+				echo ("<form  action='".$_SERVER['PHP_SELF']."?PID=".$_GET["PID"]."' method='post'>");
+				echo "<textarea name='comment' id='comment'></textarea>";
+				echo "<input type='submit' value='postar'/>";
+				echo "</form>";
+			}
+			
+			
+			
+			
+		}else{
+			echo "post não encontrado";
 		}
-	
-	
+		
+	}else{
+		echo "especifique um post";
+		
+		
 	}
 	
 }
-	
-	
-*/	
+
 		
 		
 		

@@ -5,9 +5,9 @@
 <?php
 
 include_once('API/sessionManeger.php');
-include_once('API/post.php');
+include_once('API/content.php');
 echo $_SESSION["User"];
-postDiscussion();
+createPost();
 ?>
 
 <link rel='stylesheet' href='CSS/normalize.css'>

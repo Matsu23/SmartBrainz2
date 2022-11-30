@@ -15,11 +15,31 @@ function alterDescription(){
 		
 	}
 	
-	
-
-
-
-	
-
 }
+	
+	
+function getProfile(){
+	if (isset($_GET["UID"])){
+		$uid=$_GET["UID"];
+		$tabela='usertbl';
+		$condition='WHERE idUser='.$uid;
+		
+		$profile=read($tabela,$condition);
+		if($profile!=false){
+			print_r($profile);
+		}else{
+			echo "usuario não encontrado";
+		}
+		
+	}else{
+		echo "especifique um usuario";
+		echo $_GET["UID"];
+		
+	}
+	
+}
+
+
+	
+
 ?>

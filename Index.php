@@ -14,7 +14,7 @@ logIn();
 cadastro();
 include_once('API/sessionManeger.php');
 if((testLogin())){
-	echo "<script>window.location.href = 'Timeline.php';</script>";
+	echo "<script>window.location.href = 'home.php';</script>";
 };
 
 ?>
