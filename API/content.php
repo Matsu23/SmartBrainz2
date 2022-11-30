@@ -39,7 +39,7 @@ function createComment(){
 			echo "<script>alert('erro realizado com sucesso');</script>";
 		}else{
 			echo "<script>alert('cadastro realizado com sucesso');</script>";
-			
+			header("Refresh:0;");
 		}
 		
 	

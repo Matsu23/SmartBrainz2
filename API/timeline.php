@@ -67,7 +67,6 @@ function getPost(){
 		$condition='WHERE idPost='.$pid;
 		
 		$posts=read('posttbl',$condition,1,[ 'usertbl.idUser', 'posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser']);
-		print_r($posts);
 		if($posts!=false){
 			
 			for ($x = 0; $x <= count($posts)-1; $x++){
@@ -83,8 +82,19 @@ function getPost(){
 				echo "<input type='submit' value='postar'/>";
 				echo "</form>";
 			}
+			 getComentario($pid);
 			
 			
+			{
+			
+			
+			
+			
+			
+			
+			
+			
+		}
 			
 			
 		}else{
@@ -99,6 +109,20 @@ function getPost(){
 	
 }
 
+
+function getComentario($postId){
+	$condition='WHERE idPost='.$postId;
+	$coment=read('comtbl',$condition,1,[ 'usertbl.idUser' ,'comtbl.idCom','usertbl.userImg','usertbl.userName','comtbl.contentCom'],['usertbl','usertbl.idUser','comtbl.idUser']);
+	for ($x = 0; $x <= count($coment)-1; $x++){
+		echo "<div style='border-style:solid;border-color:yellow;'>";
+		echo ("idpost:".$coment[$x]['idCom']."<br>");
+		echo ("<img src='".$coment[$x]['userImg']."' style='width:25%;'/><br>");
+		echo ("<a href='profile.php?UID=".$coment[$x]['idUser']."'>username:".$coment[$x]['userName']."</a><br>");
+		echo ("conteudo:".$coment[$x]['contentCom']."<br>");
+		echo "</div>";
+	}
+
+}
 		
 		
 		

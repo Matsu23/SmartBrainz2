@@ -112,11 +112,20 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 	}
 	if($join==1){
 		
-		if(count($joinIndex)>0){
-			$sql.=" INNER JOIN ".$joinIndex[0]." ON ".$joinIndex[1]."=".$joinIndex[2];
-			if($limit!=null){
-				$sql .=" LIMIT ".$limit;
+		if(is_array($joinIndex[0])){
+				echo "<script>alert('teste join index complexo');</script>";
+				//[[1,2,3][1,2,3]]
+				for ($x = 0; $x <= count($joinIndex)-1; $x++){ //2
+					for ($y = 0; $y <= count($joinIndex[$x])-1; $y++){//3
+						$sql.=" INNER JOIN ".$joinIndex[$x][0]." ON ".$joinIndex[$x][1]."=".$joinIndex[$x][2]." \n";
+					}
+					
+				}
 				
+			}else{
+				$sql.=" INNER JOIN ".$joinIndex[0]." ON ".$joinIndex[1]."=".$joinIndex[2];
+				if($limit!=null){
+				$sql .=" LIMIT ".$limit;
 			}
 			if($offset!=null){
 				$sql .=" OFFSET ".$offset;
