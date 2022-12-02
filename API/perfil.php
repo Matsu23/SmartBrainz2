@@ -122,7 +122,7 @@ function logIn(){
 			}else{
 				include_once('sessionManeger.php');
 				loginSession($userTbl[0]['idUser'],$userTbl[0]['userName'],$userTbl[0]['userComplete']);
-				return true;
+				$_SESSION['topics']=getTopicos();
 				}
 		}
 		if (isset($_POST["userCadastro"]) && !isset($_POST["mail"])){
@@ -142,6 +142,20 @@ function logIn(){
 			
 		}
 	
+}
+
+function finishCadastro(){
+
+	if (isset($_POST["finalizar"])){
+		$userId=$_SESSION["ID"];
+		$campos = array("userComplete");
+		$tabela="usertbl";
+		$valores = array('1');
+		$condition = "WHERE idUser=".$userId;
+		$var=update($campos,$valores,$tabela,$condition);
+		echo "<script>alert('finaloi ".$var."');</script>";
+		loginSession($_SESSION["ID"],$_SESSION["User"],1);
+	}
 }
 
 

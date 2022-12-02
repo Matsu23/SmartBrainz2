@@ -45,26 +45,10 @@ function Create(array $campos, array $valores, $tabela){
 	
 	return Executar($sql);
 	
+	
 };
 
-/*
-function read($tabela,$condition='',innerJoin=false,){
-	$sql = "select * from ".$tabela." ".$condition.";";
-	if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
-	
-		$data = array();
-		 while($row = mysqli_fetch_assoc($queryResult)){
-			 $data[] = $row; 
-		 }
-		 return $data;
-		echo "deu certo";
-	}else{
-		return false;
-		echo "erere";
-	}
-	
-}
-*/
+
 
 
 

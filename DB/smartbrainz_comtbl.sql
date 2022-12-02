@@ -26,17 +26,18 @@ DROP TABLE IF EXISTS `comtbl`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `comtbl` (
   `idCom` int NOT NULL AUTO_INCREMENT,
-  `idPost` int NOT NULL,
+  `idPost` int DEFAULT NULL,
   `idUser` int NOT NULL,
   `contentCom` varchar(45) NOT NULL,
-  `subcomment` tinyint DEFAULT NULL,
+  `idTopCom` int DEFAULT NULL,
   PRIMARY KEY (`idCom`),
   KEY `post-tbl_idx` (`idPost`),
   KEY `user-com_idx` (`idUser`),
-  CONSTRAINT `com-com` FOREIGN KEY (`idPost`) REFERENCES `comtbl` (`idCom`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `post-com` FOREIGN KEY (`idPost`) REFERENCES `posttbl` (`idPost`) ON DELETE CASCADE ON UPDATE CASCADE,
+  KEY `com-com_idx` (`idTopCom`),
+  CONSTRAINT `com-com` FOREIGN KEY (`idTopCom`) REFERENCES `comtbl` (`idCom`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `post-com` FOREIGN KEY (`idPost`) REFERENCES `posttbl` (`idPost`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `user-com` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +46,6 @@ CREATE TABLE `comtbl` (
 
 LOCK TABLES `comtbl` WRITE;
 /*!40000 ALTER TABLE `comtbl` DISABLE KEYS */;
-INSERT INTO `comtbl` VALUES (1,1,1,'rtrt',NULL),(2,1,1,'TESTE COMENTARIO',NULL),(4,1,1,'teste comentario uhuuuu',NULL),(5,1,1,'teste comentario mario',NULL);
 /*!40000 ALTER TABLE `comtbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-30 17:45:57
+-- Dump completed on 2022-12-02 16:50:31

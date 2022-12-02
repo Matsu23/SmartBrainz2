@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+
+	<link rel='stylesheet' href='CSS/normalize.css'>
+	<link rel='stylesheet' href='CSS/bootstrap4.min.css'>
+    <script src='JS/jquery.slim.min.js'></script>
+    <script src="JS/bootstrap.min.js"></script>
+	<title>Smartbrainz</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="UTF-8">
+	
+
+	
+	
+</head>
+
+<body style='background-color:#A59BE2;'>
+	<div class='container border border' >
+        <form class="m-auto border">
+            <h1 class="text-center">Crie sua conta:</h1>
+            <div style="background-color:#FF6900" class="container border " style="position:absolute;">
+                <img src="UserData/Default/avatar.png"  class="rounded-circle mx-auto d-block border" style='width:50%;'>
+                <label for="imginput" style="width:10%;position:relative;bottom:120px;right:0px;" class=" d-block mx-auto"><img src="Media/img/fotoUp.png" class="w-100"></label>
+                <div class="mx-auto d-block w-75 rounded h-auto" style="background-color:white">
+                    <label class="d-block w-100" style="background-color:rgb(204, 206, 203);font-size:1.5rem;">Descrição:</label>
+                    <textarea class="mx-auto d-block w-100 rounded h-auto descriptiontext" style="font-size:2rem;border-style:none;resize: none;" >Olá,essa é minha conta smartbrainZ.</textarea>
+                    <div class="w-100 text-right"  style="background-color:rgb(204, 206, 203);font-size:1.5rem;">200</div>
+                    <input type="file" class="d-none" id="imginput"></input>
+                </div>
+               
+                
+
+
+            </div>
+
+            <div style="background-color:#FF6900" class="container border d-none flex-row flex-wrap  p-3 align-content-around" style="position:absolute;">
+
+                <label for="port" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                        <img src="Media/Img/Subjects/port.png" style="width:50%;" class="m-auto d-block">
+                        <p class="text-center text-white" style="font-size:1.5rem;">Portugues</p>
+                    
+                </label>
+
+                <label for="mat" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                    <img src="Media/Img/Subjects/math.png" style="width:50%;" class="m-auto d-block">
+                    <p class="text-center text-white" style="font-size:1.5rem;">Matematica</p>
+                
+                </label>
+
+                <label for="hist" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                    <img src="Media/Img/Subjects/historia.png" style="width:50%;" class="m-auto d-block">
+                    <p class="text-center text-white" style="font-size:1.5rem;">História</p>
+                
+                </label>
+
+                <label for="geo" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                    <img src="Media/Img/Subjects/geo.png" style="width:50%;" class="m-auto d-block">
+                    <p class="text-center text-white" style="font-size:1.5rem;">Geografia</p>
+                
+                </label>
+
+                <label for="bio" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                    <img src="Media/Img/Subjects/bio.png" style="width:50%;" class="m-auto d-block">
+                    <p class="text-center text-white" style="font-size:1.5rem;">Biologia</p>
+                
+                </label>
+
+                <label for="fis" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                    <img src="Media/Img/Subjects/fis.png" style="width:50%;" class="m-auto d-block">
+                    <p class="text-center text-white" style="font-size:1.5rem;">Fisica</p>
+                
+                </label>
+
+                <label for="qui" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                    <img src="Media/Img/Subjects/quim.png" style="width:50%;" class="m-auto d-block">
+                    <p class="text-center text-white" style="font-size:1.5rem;">Quimica</p>
+                
+                </label>
+
+                <label for="ingl" class="d-block w-25 border" style="height:auto;background-color:rgb(43, 255, 0)">
+                    
+                    <img src="Media/Img/Subjects/ingl.png" style="width:50%;" class="m-auto d-block">
+                    <p class="text-center text-white" style="font-size:1.5rem;">Inglês</p>
+                
+                </label>
+
+
+
+                
+
+                <input type="checkbox" id="port"   value="port" name="topicos[]">
+                <input type="checkbox" id="mat"   value="mat" name="topicos[]">
+                <input type="checkbox"  id="hist"   value="hist" name="topicos[]">
+                <input type="checkbox"  id="geo"  value="geo" name="topicos[]">
+                <input type="checkbox" id="bio"  value="bio" name="topicos[]">
+                <input type="checkbox" id="fis"  value="fis" name="topicos[]">
+                <input type="checkbox" id="qui"  value="qui" name="topicos[]">
+                <input type="checkbox" id="ingl"  value="ingl" name="topicos[]">
+
+            </div>
+
+            <span  style="background-color:rgb(43, 255, 0);position:relative;left:0px; top:0px" class="text-left btn  ">
+                Anterior
+            </span>
+            <span  style="background-color:rgb(43, 255, 0);position:relative;float:right; top:0px" class="text-right btn">
+                Proximo
+            </span>
+
+        </form>
+    </div>
+
+</body>
+
+</html>

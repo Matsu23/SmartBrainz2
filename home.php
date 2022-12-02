@@ -6,6 +6,9 @@
 include_once('API/timeline.php');
 load();
  echo "<script>alert('".$_SESSION["User"]."')</script>";
+ echo "<script>alert('".$_SESSION["topics"]."')</script>";
+ echo "<script>alert('".$_SESSION["creationComplete"]."')</script>";
+ print_r($_SESSION["creationComplete"]);
 ?>
 
 

@@ -31,8 +31,8 @@ CREATE TABLE `posttbl` (
   `topicPost` varchar(45) NOT NULL,
   PRIMARY KEY (`idPost`),
   KEY `idUser_idx` (`idUser`),
-  CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,6 @@ CREATE TABLE `posttbl` (
 
 LOCK TABLES `posttbl` WRITE;
 /*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
-INSERT INTO `posttbl` VALUES (1,1,'rtrtr','mat'),(83,149,'post de mat1','mat'),(84,149,'post de mat2','mat'),(85,149,'post de mat 3','mat'),(86,149,'post de pot','port'),(87,149,'post de pot2','port'),(88,149,'post de geo1','geo'),(89,149,'post de geo2','geo'),(90,149,'post de geo3','geo'),(91,149,'post de geo4','geo'),(92,149,'post de geo5','geo'),(93,149,'post de bio1','bio'),(94,149,'post de bio2','bio'),(95,149,'post de bio3','bio'),(96,149,'post de fis1','fis'),(97,149,'post de fis1','fis'),(98,150,'bolo teste','bio');
 /*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-30 17:45:57
+-- Dump completed on 2022-12-02 16:50:31

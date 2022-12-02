@@ -45,8 +45,26 @@ function createComment(){
 		
 	
 	}
-	
 }
+
+function createSubcomment(){
+	if (isset($_POST["subcomment"])){
+		$userId=$_SESSION["ID"];
+		$subcomment=$_POST["subcomment"];
+		$idcoment=$_POST["idsubcomment"];
+		$fields = array("idUser","contentCom",'idTopCom');
+		$table="comtbl";
+		$values = array($userId,$subcomment,$idcoment);
+		if((Create( $fields, $values, $table))==false){
+			echo "<script>alert('erro realizado com sucesso');</script>";
+		}else{
+			echo "<script>alert('subcomentario realizado com sucesso');</script>";
+			header("Refresh:0;");
+		}
+
+	}
+}
+
 
 
 ?>

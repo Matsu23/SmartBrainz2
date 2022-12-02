@@ -7,6 +7,7 @@ include_once('API/perfil.php');
 include_once('API/sessionManeger.php');
 setTopicos();
 alterImg();
+finishCadastro();
 ?>
 
 
@@ -58,7 +59,9 @@ alterImg();
 		<input type="file" id="img" name="img" accept="image/*">
 		 <input type='submit' name='imgUp' value='enviar'/>
 	</form>
-	
+	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method='POST' >
+		 <input type='submit' name='finalizar' value='finalizar'/>
+	</form>
 
 </body>
 </html>

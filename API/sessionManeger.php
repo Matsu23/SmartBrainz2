@@ -8,12 +8,14 @@ if (session_status() === PHP_SESSION_NONE) {
 
 function testLogin(){	
 	if(isset($_SESSION["User"]) && $_SESSION["creationComplete"]==1){
-			 return true;
+			 return "finished";
 			 
+		}else if(isset($_SESSION["User"]) && $_SESSION["creationComplete"]==0){
+			return "creating";
 		}
 };
 
-function loginSession($sessionIndex,$user,$creation,$topics=null){
+function loginSession($sessionIndex,$user,$creation){
 	$_SESSION["ID"] = $sessionIndex;
 	$_SESSION["User"] = $user;
 	$_SESSION['creationComplete']=$creation;
