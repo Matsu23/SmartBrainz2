@@ -12,6 +12,9 @@ function testLogin(){
 			 
 		}else if(isset($_SESSION["User"]) && $_SESSION["creationComplete"]==0){
 			return "creating";
+		}else if(!(isset($_SESSION["User"]))){
+			return false;
+
 		}
 };
 

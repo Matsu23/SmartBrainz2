@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+<title>SmartBrainZ</title>
 <?php
+include_once('API\sessionManeger.php');
+if((testLogin())=="creating"){
+	echo "<script>window.location.href = 'creatingAccount.php';</script>";
+}
+if((testLogin())==false){
+	echo "<script>window.location.href = 'index.php';</script>";
+}
 include_once('API/timeline.php');
 load();
  echo "<script>alert('".$_SESSION["User"]."')</script>";

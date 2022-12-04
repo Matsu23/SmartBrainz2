@@ -19,9 +19,9 @@ function alterDescription(){
 
 function alterImg(){
 	include_once('sessionManeger.php');
-	if (isset($_POST["imgUp"])){
+	if (isset($_POST["upload"])){
 		$target_dir = "./UserData/".$_SESSION["User"]."/avatar.png";
-		 if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_dir)){
+		 if (move_uploaded_file($_FILES["imgUp"]["tmp_name"], $target_dir)){
 			 echo "<script>alert('arquivo uploadado');</script>";
 		 }else{
 			 echo "<script>alert('arquivo não uploado');</script>";
@@ -155,6 +155,7 @@ function finishCadastro(){
 		$var=update($campos,$valores,$tabela,$condition);
 		echo "<script>alert('finaloi ".$var."');</script>";
 		loginSession($_SESSION["ID"],$_SESSION["User"],1);
+		echo "<script>window.location.href = 'home.php';</script>";
 	}
 }
 
