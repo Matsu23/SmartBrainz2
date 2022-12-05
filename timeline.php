@@ -9,7 +9,7 @@
 	<link rel='stylesheet' href='CSS/bootstrap4.min.css'>
     <script src='JS/jquery.slim.min.js'></script>
     <script src="JS/bootstrap.min.js"></script>
-	<title>SmartBrainZ</title>
+	<title>Smartbrainz</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta charset="UTF-8">
