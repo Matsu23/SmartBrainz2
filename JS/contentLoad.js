@@ -36,7 +36,19 @@ function loadScroll(wheight,wScrollY,bodyOffSetHeight){
 }
 
 
+window.onload = function(){teste()};
 
-
-
+function teste(){
+	alert('teste onload');
+	fetch("http://localhost/API/timeline.php", {
+			method: "POST",
+			headers: {
+			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+			},
+			body: "load='true'",
+		})
+		.then((response) => response.text());
+		
+	
+}
 

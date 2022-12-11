@@ -3,7 +3,10 @@
 include_once('sessionManeger.php');
 include_once('crud.php');
 
-load();
+
+	load();
+
+
 
 
 function load(){

@@ -18,11 +18,11 @@ function testLogin(){
 		}
 };
 
-function loginSession($sessionIndex,$user,$creation){
+function loginSession($sessionIndex,$user,$creation,$img){
 	$_SESSION["ID"] = $sessionIndex;
 	$_SESSION["User"] = $user;
 	$_SESSION['creationComplete']=$creation;
-	
+	$_SESSION['avatar']=$img;
 	
 };
 

@@ -23,6 +23,7 @@ function alterImg(){
 		$target_dir = "./UserData/".$_SESSION["User"]."/avatar.png";
 		 if (move_uploaded_file($_FILES["imgUp"]["tmp_name"], $target_dir)){
 			 echo "<script>alert('arquivo uploadado');</script>";
+			 $_SESSION['avatar']="./UserData/".$_SESSION["User"]."/avatar.png";
 		 }else{
 			 echo "<script>alert('arquivo não uploado');</script>";
 		 }
@@ -121,7 +122,7 @@ function logIn(){
 				echo "<script>alert('erro ao realizar login');</script>";
 			}else{
 				include_once('sessionManeger.php');
-				loginSession($userTbl[0]['idUser'],$userTbl[0]['userName'],$userTbl[0]['userComplete']);
+				loginSession($userTbl[0]['idUser'],$userTbl[0]['userName'],$userTbl[0]['userComplete'],$userTbl[0]['userImg']);
 				$_SESSION['topics']=getTopicos();
 				}
 		}

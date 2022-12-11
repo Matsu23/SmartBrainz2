@@ -3,7 +3,11 @@
 <head>
 <title>SmartBrainZ</title>
 <?php
-include_once('API\sessionManeger.php');
+include_once('API/sessionManeger.php');
+include_once('API/content.php');
+
+
+createPost();
 if((testLogin())=="creating"){
 	echo "<script>window.location.href = 'creatingAccount.php';</script>";
 }
@@ -129,7 +133,7 @@ img {
                 <div class="m-5 " style="font-size:14px;font-weight:bold;">
                     
                     <div  style=" border-radius:100px;margin-right: 15px;font-size:1.5em;"> 
-                        <img src="UserData/Default/avatar.png" style="width:100px;" class="pe-5"/><b>Usuario</b><span style="font-size:2em;color:#617881;">LV 25</span>
+                        <img src="<?php echo $_SESSION['avatar']; ?>" style="width:100px;border-radius:100px;" class=" pe-5 "/></img><b><?php echo $_SESSION["User"] ?></b><span style="font-size:2em;color:#617881;">LV 25</span>
                         <div id="progressbar" style="background-color: black;border-radius: 13px;padding: 3px;">
                             <div style="background-color: orange;width: 40%;height: 20px;border-radius: 10px;"></div>
                         </div>
@@ -149,11 +153,25 @@ img {
     
                         </div>
                     </div>
-                    <form class="d-block  mt-5">
+                    <form class="d-block  mt-5" method="POST">
                         <div class="">
-                            <textarea class="w-100" style="height:200px;resize:none;font-size:2em;" placeholder="No que você esta pensando?"></textarea>
-                            <div style="background-color:rgb(204, 206, 203);font-size:1.5em;color:rgb(142, 146, 140)" class="text-right">
-                                500
+                          <select name="cars" id="cars">
+
+                          </select>
+                            <textarea class="w-100" name='post' id='post' style="height:200px;resize:none;font-size:2em;" placeholder="No que você esta pensando?"></textarea>
+                            <div style="background-color:rgb(204, 206, 203);font-size:1.5em;color:rgb(142, 146, 140)">
+                           <label>Categoria</labe> 
+                           <select name='topico'>
+			  <option value="port">Portugues</option>
+			<option value="mat">Matematica</option>
+			<option value="hist">Historia</option>
+			<option value="geo">Geografia</option>
+			<option value="bio">Biologia</option>
+			<option value="fis">Fisica</option>
+			<option value="qui">Quimica</option>
+			<option value="ingl">Inglês</option>	  
+		</select><span style='float:right'>500</span>
+                                
                             </div>
     
                         </div>

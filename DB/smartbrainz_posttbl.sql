@@ -32,7 +32,7 @@ CREATE TABLE `posttbl` (
   PRIMARY KEY (`idPost`),
   KEY `idUser_idx` (`idUser`),
   CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,6 +41,7 @@ CREATE TABLE `posttbl` (
 
 LOCK TABLES `posttbl` WRITE;
 /*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
+INSERT INTO `posttbl` VALUES (110,157,'teste','mat'),(125,157,'teste portugues','port'),(126,157,'teste matematica ','port');
 /*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 11:36:07
+-- Dump completed on 2022-12-11 17:48:26
