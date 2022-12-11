@@ -155,7 +155,7 @@ function finishCadastro(){
 		$condition = "WHERE idUser=".$userId;
 		$var=update($campos,$valores,$tabela,$condition);
 		echo "<script>alert('finaloi ".$var."');</script>";
-		loginSession($_SESSION["ID"],$_SESSION["User"],1);
+		loginSession($_SESSION["ID"],$_SESSION["User"],1,"/UserData/".$_SESSION["User"]."/avatar.png");
 		echo "<script>window.location.href = 'home.php';</script>";
 	}
 }

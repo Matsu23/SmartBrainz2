@@ -18,7 +18,7 @@ function testLogin(){
 		}
 };
 
-function loginSession($sessionIndex,$user,$creation,$img){
+function loginSession($sessionIndex,$user,$creation,$img=null){
 	$_SESSION["ID"] = $sessionIndex;
 	$_SESSION["User"] = $user;
 	$_SESSION['creationComplete']=$creation;
