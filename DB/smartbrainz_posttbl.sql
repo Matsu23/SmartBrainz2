@@ -27,12 +27,12 @@ DROP TABLE IF EXISTS `posttbl`;
 CREATE TABLE `posttbl` (
   `idPost` int NOT NULL AUTO_INCREMENT,
   `idUser` int NOT NULL,
-  `contentPost` varchar(400) NOT NULL,
-  `topicPost` varchar(45) NOT NULL,
+  `contentPost` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `topicPost` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`idPost`),
   KEY `idUser_idx` (`idUser`),
   CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 11:22:30
+-- Dump completed on 2022-12-11 11:36:07

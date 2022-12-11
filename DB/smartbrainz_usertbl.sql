@@ -26,16 +26,16 @@ DROP TABLE IF EXISTS `usertbl`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usertbl` (
   `idUser` int NOT NULL AUTO_INCREMENT,
-  `userName` varchar(45) NOT NULL,
-  `userMail` varchar(45) NOT NULL,
-  `userPassword` varchar(45) NOT NULL,
-  `userImg` varchar(45) DEFAULT 'UserData/Default/icon.png',
-  `userDescription` varchar(500) DEFAULT 'Olá,essa é minha conta smartbrainZ',
+  `userName` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `userMail` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `userPassword` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `userImg` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'UserData/Default/icon.png',
+  `userDescription` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'Olá,essa é minha conta smartbrainZ',
   `userComplete` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `userName_UNIQUE` (`userName`),
   UNIQUE KEY `userMail_UNIQUE` (`userMail`)
-) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 11:22:31
+-- Dump completed on 2022-12-11 11:36:07

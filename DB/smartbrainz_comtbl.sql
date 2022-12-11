@@ -28,7 +28,7 @@ CREATE TABLE `comtbl` (
   `idCom` int NOT NULL AUTO_INCREMENT,
   `idPost` int DEFAULT NULL,
   `idUser` int NOT NULL,
-  `contentCom` varchar(45) NOT NULL,
+  `contentCom` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `idTopCom` int DEFAULT NULL,
   PRIMARY KEY (`idCom`),
   KEY `post-tbl_idx` (`idPost`),
@@ -37,7 +37,7 @@ CREATE TABLE `comtbl` (
   CONSTRAINT `com-com` FOREIGN KEY (`idTopCom`) REFERENCES `comtbl` (`idCom`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `post-com` FOREIGN KEY (`idPost`) REFERENCES `posttbl` (`idPost`) ON DELETE CASCADE ON UPDATE RESTRICT,
   CONSTRAINT `user-com` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 11:22:30
+-- Dump completed on 2022-12-11 11:36:07
