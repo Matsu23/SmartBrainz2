@@ -74,7 +74,7 @@ function cadastro(){
 				copy('./UserData/Default/avatar.png','UserData/'.$name.'/avatar.png' );
 			}
 			echo "<script>alert('cadastro realizado com sucesso');</script>";
-			$data = array($mail,$pass);
+			$data = array($mail,$pass,'UserData/'.$name.'/avatar.png');
 			return $data;
 		}
 		
@@ -135,7 +135,7 @@ function logIn(){
 			if($userTbl2==false){
 				echo "<script>alert('erro ao realizar login');</script>";
 			}else{
-				loginSession($userTbl2[0]['idUser'],$userTbl2[0]['userName'],$userTbl2[0]['userComplete']);
+				loginSession($userTbl2[0]['idUser'],$userTbl2[0]['userName'],$userTbl2[0]['userComplete'],$userTbl2[0]['userImg']);
 				echo "<script>window.location.href = 'creatingAccount.php';</script>";
 			}
 			

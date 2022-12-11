@@ -5,7 +5,7 @@
 <?php
 include_once('API/sessionManeger.php');
 include_once('API/content.php');
-
+include_once('API/timeline.php');
 
 createPost();
 if((testLogin())=="creating"){

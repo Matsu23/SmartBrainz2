@@ -39,7 +39,7 @@ function loadScroll(wheight,wScrollY,bodyOffSetHeight){
 window.onload = function(){teste()};
 
 function teste(){
-	alert('teste onload');
+	const result=document.getElementById("result");
 	fetch("http://localhost/API/timeline.php", {
 			method: "POST",
 			headers: {
@@ -47,7 +47,8 @@ function teste(){
 			},
 			body: "load='true'",
 		})
-		.then((response) => response.text());
+		.then((response) => response.text())
+		.then((res) => (result.innerHTML += res));
 		
 	
 }
