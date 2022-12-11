@@ -26,11 +26,11 @@ DROP TABLE IF EXISTS `usertbl`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usertbl` (
   `idUser` int NOT NULL AUTO_INCREMENT,
-  `userName` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `userMail` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `userPassword` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `userImg` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'UserData/Default/icon.png',
-  `userDescription` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT 'Olá,essa é minha conta smartbrainZ',
+  `userName` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL,
+  `userMail` varchar(45) COLLATE utf8_bin NOT NULL,
+  `userPassword` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL,
+  `userImg` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_bin DEFAULT 'UserData/Default/icon.png',
+  `userDescription` varchar(500) COLLATE utf8_bin DEFAULT 'Olá,essa é minha conta smartbrainZ',
   `userComplete` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `userName_UNIQUE` (`userName`),
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 17:48:26
+-- Dump completed on 2022-12-11 18:24:26

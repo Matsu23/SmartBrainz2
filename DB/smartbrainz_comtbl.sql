@@ -28,7 +28,7 @@ CREATE TABLE `comtbl` (
   `idCom` int NOT NULL AUTO_INCREMENT,
   `idPost` int DEFAULT NULL,
   `idUser` int NOT NULL,
-  `contentCom` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `contentCom` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL,
   `idTopCom` int DEFAULT NULL,
   PRIMARY KEY (`idCom`),
   KEY `post-tbl_idx` (`idPost`),
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 17:48:26
+-- Dump completed on 2022-12-11 18:24:25

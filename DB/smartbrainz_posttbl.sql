@@ -27,12 +27,12 @@ DROP TABLE IF EXISTS `posttbl`;
 CREATE TABLE `posttbl` (
   `idPost` int NOT NULL AUTO_INCREMENT,
   `idUser` int NOT NULL,
-  `contentPost` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `topicPost` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `contentPost` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL,
+  `topicPost` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`idPost`),
   KEY `idUser_idx` (`idUser`),
   CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `posttbl` (
 
 LOCK TABLES `posttbl` WRITE;
 /*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
-INSERT INTO `posttbl` VALUES (110,157,'teste','mat'),(125,157,'teste portugues','port'),(126,157,'teste matematica ','port');
+INSERT INTO `posttbl` VALUES (110,157,'teste','mat'),(125,157,'teste portugues','port'),(126,157,'teste matematica ','port'),(127,157,'teste portugues 2','port'),(128,157,'teste portugues 3\r\n','port'),(129,157,'teste portugues 4','port'),(130,157,'teste portugues 6','port');
 /*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 17:48:26
+-- Dump completed on 2022-12-11 18:24:25
