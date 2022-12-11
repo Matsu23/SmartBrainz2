@@ -1,15 +1,18 @@
 
 let x=0;
-window.onscroll = function() {loadScroll()};
-function loadScroll(){
+
+window.onscroll = function() {loadScroll(window.innerHeight,window.scrollY,document.body.scrollHeight)};
+function loadScroll(wheight,wScrollY,bodyOffSetHeight){
+	
 	/*alert(document.documentElement.scrollTop);*/
 	
-	 if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+	 if ((wheight + wScrollY) >= bodyOffSetHeight) {
+		
 		 const result=document.getElementById("result");
         alert('fim da pagina');
 		x+=5;
 		const elm = document.createElement("div");
-		fetch("http://localhost/home.php", {
+		fetch("http://localhost/API/timeline.php", {
 			method: "POST",
 			headers: {
 			"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
@@ -22,19 +25,18 @@ function loadScroll(){
 		
 		
 		result.appendChild(elm);
+
 		
 		
-		alert(x);
 		
     }
 	
-}
 
-
-window.onload = function(){teste()};
-
-function teste(){
 	
-	window.alert('erer');
 }
+
+
+
+
+
 
