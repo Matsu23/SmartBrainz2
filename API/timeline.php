@@ -58,7 +58,7 @@ function initialLoad(){
 					echo "<a href='profile.php?UID=".$posts[$x]['idUser']."'>";
 					echo $posts[$x]['userName'];
 					echo "</a>";
-					echo "<span>Publicou um pensamento</span>. <span class='data' style='font-weight:normal;color:black;'>Data</span>";
+					echo "<span>Publicou um pensamento</span>.   ";
 					echo "<p>".$posts[$x]['contentPost']."</p>";
 					echo "</div>";
 
@@ -117,7 +117,7 @@ function loadMore($counter){
 					echo "<a href='profile.php?UID=".$posts[$x]['idUser']."'>";
 					echo $posts[$x]['userName'];
 					echo "</a>";
-					echo "<span>Publicou um pensamento</span>. <span class='data' style='font-weight:normal;color:black;'>Data</span>";
+					echo "<span>Publicou um pensamento</span>.   ";
 					echo "<p>".$posts[$x]['contentPost']."</p>";
 					echo "</div>";
 
@@ -167,7 +167,7 @@ function getPost(){
 					echo "<a href='profile.php?UID=".$posts[$x]['idUser']."'>";
 					echo $posts[$x]['userName'];
 					echo "</a>";
-					echo "<span>Publicou um pensamento</span>. <span class='data' style='font-weight:normal;color:black;'>Data</span>";
+					echo "<span>Publicou um pensamento</span>.   ";
 					echo "<p>".$posts[$x]['contentPost']."</p>";
 					echo "</div>";
 
@@ -241,7 +241,7 @@ function getComentario($postId){
 						echo "<a href='profile.php?UID=".$coment[$x]['idUser']."'>";
 						echo $coment[$x]['userName'];
 						echo "</a>";
-						echo "<span>Publicou um pensamento</span>. <span class='data' style='font-weight:normal;color:black;'>Data</span>";
+						echo "<span>Comentou</span>.   ";
 						echo "<p>".$coment[$x]['contentCom']."</p>";
 					echo "</div>";
 
@@ -293,7 +293,7 @@ function getSubComentario($comId){
 						echo "<a href='profile.php?UID=".$subcom[$x]['idUser']."'>";
 						echo $subcom[$x]['userName'];
 						echo "</a>";
-						echo "<span>Publicou um pensamento</span>. <span class='data' style='font-weight:normal;color:black;'>Data</span>";
+						echo "<span>Publicou um pensamento</span>.   ";
 						echo "<p>".$subcom[$x]['contentCom']."</p>";
 					echo "</div>";
 

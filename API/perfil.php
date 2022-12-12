@@ -11,7 +11,7 @@ function alterDescription(){
 		$valores = array($desc);
 		$condition = "WHERE idUser=".$userId;
 		$var=update($campos,$valores,$tabela,$condition);
-		echo "<script>alert('oi ".$var."');</script>";
+		
 		
 	}
 	
@@ -22,10 +22,10 @@ function alterImg(){
 	if (isset($_POST["upload"])){
 		$target_dir = "./UserData/".$_SESSION["User"]."/avatar.png";
 		 if (move_uploaded_file($_FILES["imgUp"]["tmp_name"], $target_dir)){
-			 echo "<script>alert('arquivo uploadado');</script>";
+			 
 			 $_SESSION['avatar']="./UserData/".$_SESSION["User"]."/avatar.png";
 		 }else{
-			 echo "<script>alert('arquivo não uploado');</script>";
+			
 		 }
 	}
 }
@@ -67,7 +67,7 @@ function cadastro(){
 		$values = array($name,$mail,$pass,'UserData/'.$name.'/avatar.png');
 		if((Create( $fields, $values, $table))==false){
 			
-				echo "<script>alert('erro realizado com sucesso');</script>";
+				
 			
 		}else{
 			if(mkdir('./UserData/'.$name)) {
@@ -77,7 +77,7 @@ function cadastro(){
 				
 			}
 		
-			echo "<script>alert('cadastro realizado com sucesso');</script>";
+			
 			$data = array($mail,$pass,'UserData/'.$name.'/avatar.png');
 			return $data;
 		}
@@ -127,10 +127,10 @@ function logIn(){
 			$where="WHERE userMail = '".$mail."' AND userPassword = '".$pass."';";
 			$userTbl=read('userTbl',$where);
 			if($userTbl==false){
-				echo "<script>alert('erro ao realizar login');</script>";
+				
 			}else{
 				include_once('sessionManeger.php');
-				loginSession($userTbl[0]['idUser'],$userTbl[0]['userName'],$userTbl[0]['userComplete'],$userTbl[0]['userImg']);
+				loginSession($userTbl[0]['idUser'],$userTbl[0]['userName'],$userTbl[0]['userComplete'],$userTbl[0]['userImg'],$userTbl[0]['userLevel'],$userTbl[0]['userExp']);
 				$_SESSION['topics']=getTopicos();
 				$_SESSION['likes']=getLikes();
 				}
@@ -142,9 +142,9 @@ function logIn(){
 			$userTbl2=read('userTbl',$where2);
 			include_once('sessionManeger.php');
 			if($userTbl2==false){
-				echo "<script>alert('erro ao realizar login');</script>";
+				
 			}else{
-				loginSession($userTbl2[0]['idUser'],$userTbl2[0]['userName'],$userTbl2[0]['userComplete'],$userTbl2[0]['userImg']);
+				loginSession($userTbl2[0]['idUser'],$userTbl2[0]['userName'],$userTbl2[0]['userComplete'],$userTbl2[0]['userImg'],$userTbl2[0]['userLevel'],$userTbl2[0]['userExp']);
 				echo "<script>window.location.href = 'creatingAccount.php';</script>";
 			}
 			
@@ -163,7 +163,7 @@ function finishCadastro(){
 		$valores = array('1');
 		$condition = "WHERE idUser=".$userId;
 		$var=update($campos,$valores,$tabela,$condition);
-		echo "<script>alert('finaloi ".$var."');</script>";
+		
 		$avataradress= "/UserData/".$_SESSION["User"]."/avatar.png";
 		loginSession($_SESSION["ID"],$_SESSION["User"],1,$avataradress);
 		echo "<script>window.location.href = 'home.php';</script>";
@@ -198,11 +198,10 @@ function getLikes($id=null,$tipo=null){
 }
 
 function getProfileActivity($id){
-	$id=157;
-	$condition="WHERE idUser='".$id."'";
+	$condition="WHERE usertbl.idUser='".$id."'";
 	$posts=read('posttbl',$condition,1,[ 'usertbl.idUser','posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser']);
-	print_r($posts);
-		/*if(is_array($posts)){
+	
+		if(is_array($posts)){
 			for ($x = 0; $x <= count($posts)-1; $x++){
 				
 				echo "<a href='post.php?PID=".$posts[$x]['idPost']."'>";
@@ -212,7 +211,7 @@ function getProfileActivity($id){
 					echo "<a href='profile.php?UID=".$posts[$x]['idUser']."'>";
 					echo $posts[$x]['userName'];
 					echo "</a>";
-					echo "<span>Publicou um pensamento</span>. <span class='data' style='font-weight:normal;color:black;'>Data</span>";
+					echo "<span>Publicou um pensamento</span>.   ";
 					echo "<p>".$posts[$x]['contentPost']."</p>";
 					echo "</div>";
 
@@ -221,8 +220,8 @@ function getProfileActivity($id){
 						echo " <svg class='feather feather-message-circle sc-dnqmqq jxshSx' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'></path></svg>";
 						echo " <div class='comment-count'>"."<a href='post.php?PID=".$posts[$x]['idPost']."'>".getCommentNumber($posts[$x]['idPost'])."</a></div>";
 					echo "</div>";
-					 
-					echo " <div class='likes' onclick=\"like('".$posts[$x]['idPost']."','post','home.php')\">";
+					
+					echo " <div class='likes' onclick=\"like('".$posts[$x]['idPost']."','post','".$_SERVER['PHP_SELF']."?UID=".$_GET["UID"]."')\">";
 						if(getLikes($posts[$x]['idPost'],'post')>0){
 							echo "<svg class='feather feather-heart sc-dnqmqq jxshSx' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='red' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg>";
 
@@ -238,9 +237,8 @@ function getProfileActivity($id){
 				echo "</a>";
 			}
 
-echo 'b';
-}*/
-}
+
+}}
 
 
 

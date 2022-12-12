@@ -17,7 +17,7 @@ function like(){
 			$values = array($userId,$id);
 			if(getLikes($id,$tipo)==0){
 				if((Create( $fields, $values, $table))==false){
-					echo "<script>alert('erro realizado com sucesso');</script>";
+				
 				
 				}else{
 				
@@ -36,7 +36,7 @@ function like(){
 			$values = array($userId,$id);
 			if(getLikes($id,$tipo)==0){
 				if((Create( $fields, $values, $table))==false){
-					echo "<script>alert('erro realizado com sucesso');</script>";
+					
 				
 				}else{
 				
@@ -72,14 +72,17 @@ function createPost(){
 		$table="posttbl";
 		$values = array($userId,$post,$topic);
 		if((Create( $fields, $values, $table))==false){
-				echo "<script>alert('erro realizado com sucesso');</script>";
+			
+				
 			
 		}else{
-			echo "<script>alert('cadastro realizado com sucesso');</script>";
-		}
+			
+			
 		
 		
 	}
+
+}
 	
 	
 
@@ -99,9 +102,9 @@ function createComment(){
 		$PID=$_POST["postID"];;
 		$values = array($userId,$comment,$idpost);
 		if((Create( $fields, $values, $table))==false){
-			echo "<script>alert('erro realizado com sucesso');</script>";
+			
 		}else{
-			echo "<script>alert('cadastro realizado com sucesso');</script>";
+			
 			echo "<script>window.location.href = 'post.php?PID=".$PID."';</script>";
 		}
 		
@@ -119,9 +122,9 @@ function createSubcomment(){
 		$PIDSC=$_POST["subcompostID"];
 		$values = array($userId,$subcomment,$idcoment);
 		if((Create( $fields, $values, $table))==false){
-			echo "<script>alert('erro realizado com sucesso');</script>";
+			
 		}else{
-			echo "<script>alert('subcomentario realizado com sucesso');</script>";
+			
 			echo "<script>window.location.href = 'post.php?PID=".$PIDSC."';</script>";
 		}
 

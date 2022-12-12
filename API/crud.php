@@ -101,6 +101,7 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 				
 			 }
 			 return $data;
+			 
 		}else{
 			return false;
 		}
@@ -108,7 +109,7 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 	if($join==1){
 		
 		if(is_array($joinIndex[0])){
-				echo "<script>alert('teste join index complexo');</script>";
+				
 				//[[1,2,3][1,2,3]]
 				for ($x = 0; $x <= count($joinIndex)-1; $x++){ //2
 					for ($y = 0; $y <= count($joinIndex[$x])-1; $y++){//3
@@ -147,6 +148,21 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 	
 	
 		
+
+}
+
+function readUnion($query){
+	if (mysqli_num_rows(($queryResult=Executar($query))) > 0) {
+		$data = array();
+		 while($row = mysqli_fetch_assoc($queryResult)){
+			 $data[] = $row;  
+			 
+			
+		 }
+		 return $data;
+	}else{
+		return false;
+	}
 
 }
 

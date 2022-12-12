@@ -9,7 +9,7 @@ function loadScroll(wheight,wScrollY,bodyOffSetHeight){
 	 if ((wheight + wScrollY) >= bodyOffSetHeight) {
 		
 		 const result=document.getElementById("result");
-        alert('fim da pagina');
+       
 		x+=5;
 		const elm = document.createElement("div");
 		fetch("http://localhost/API/timeline.php", {

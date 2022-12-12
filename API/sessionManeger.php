@@ -18,11 +18,13 @@ function testLogin(){
 		}
 };
 
-function loginSession($sessionIndex,$user,$creation,$img=null){
+function loginSession($sessionIndex,$user,$creation,$img=null,$lvl=null,$exp=null){
 	$_SESSION["ID"] = $sessionIndex;
 	$_SESSION["User"] = $user;
 	$_SESSION['creationComplete']=$creation;
 	$_SESSION['avatar']=$img;
+	$_SESSION['lvl']=$lvl;
+	$_SESSION['exp']=$exp;
 	
 };
 

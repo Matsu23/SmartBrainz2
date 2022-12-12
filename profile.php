@@ -139,13 +139,13 @@ img {
                         </div>
                         <div class="row  text-white" >
                             <div class="col text-center">
-                                <span>500</span><br>
+                                 <span>0</span><br>
                                 <span>Seguindo</span>
     
     
                             </div>
                             <div class="col text-center">
-                                <span>500</span><br>
+                                 <span>0</span><br>
                                 <span>Seguidores</span>
     
     
@@ -155,9 +155,7 @@ img {
                     </div>
                     <form class="d-block  mt-5" method="POST">
                         <div class="">
-                          <select name="cars" id="cars">
-
-                          </select>
+                        
                             <textarea class="w-100" name='post' id='post' style="height:200px;resize:none;font-size:2em;" placeholder="No que você esta pensando?"></textarea>
                             <div style="background-color:rgb(204, 206, 203);font-size:1.5em;color:rgb(142, 146, 140)">
                            <label>Categoria</labe> 
@@ -213,13 +211,13 @@ img {
                         </div>
                         <div class="row  text-white" >
                             <div class="col text-center">
-                                <span>500</span><br>
+                                 <span>0</span><br>
                                 <span>Seguindo</span>
     
     
                             </div>
                             <div class="col text-center">
-                                <span>500</span><br>
+                                 <span>0</span><br>
                                 <span>Seguidores</span>
     
     
@@ -245,7 +243,7 @@ img {
     <div class="col">
         <div style="position:fixed;">
             <ul>
-                <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/homeIcon.png' width="90px">Home</li>
+			<li style="font-size:3em;list-style-type: none;"><img src='Media/Img/homeIcon.png' width="90px"><a href='home.php' style='color:inherit;text-decoration:none;'>Home</a></li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/profile.png' width="90px">Perfil</li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/group.png' width="90px">Grupos</li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/bookIcon.png' width="90px">Anotações</li>
@@ -254,7 +252,7 @@ img {
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/rewardIcon.png' width="90px">Recompensas</li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/notifyIcon.png' width="90px">Notificações</li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/config.png' width="90px">Configurações</li>
-                <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/exit.png' width="90px">Sair</li>
+                <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/exit.png' width="90px"><a href='API/sair.php' style='color:inherit;text-decoration:none;'>Sair</li>
                 
             </ul>
         </div>

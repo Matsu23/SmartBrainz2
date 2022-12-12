@@ -24,7 +24,7 @@
 
    if((testLogin())=="finished"){
 	echo "<script>window.location.href = 'home.php';</script>";
-	echo "<script>alert('".testLogin()."');</script>";
+	
 }else if(testLogin()==false){
 	echo "<script>window.location.href = 'index.php';</script>";
 
@@ -190,7 +190,7 @@
         function nextform(){
             if(formAtual==0){
                 formAtual=1;
-                alert(formAtual);
+               
 
                 if((backbtn.classList.contains('disabled'))){
                     backBtn.classList.remove('disabled');
@@ -211,9 +211,9 @@
                 }else if(formAtual==1){
                     if(document.querySelectorAll('input[type="checkbox"]:checked').length > 0){
                         form.submit(); 
-                        alert('cadastrado');
+                        
                     }else{
-                        alert('nao cadastrado');
+                       
 						
                     }
                 }
@@ -230,7 +230,7 @@
                 
             }else if(formAtual==1){
                 formAtual=0;
-                alert(formAtual);
+                
                 if(!(backbtn.classList.contains('disabled'))){
                     backBtn.classList.add('disabled');
                 }

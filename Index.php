@@ -16,7 +16,7 @@ logIn();
 include_once('API/sessionManeger.php');
 if((testLogin())=="finished"){
 	echo "<script>window.location.href = 'home.php';</script>";
-	echo "<script>alert('".testLogin()."');</script>";
+	
 }else if((testLogin())=="creating"){
 	echo "<script>window.location.href = 'creatingAccount.php';</script>";
 }

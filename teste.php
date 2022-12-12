@@ -7,7 +7,7 @@ include_once('API/crud.php');
 $table='libetbl';
 $userid=1;
 $id=2;
-$result=delete( $table,"WHERE idUser='".$userid." AND idCom='".$id."'");
+$result=readUnion('SELECT contentPost FROM posttbl UNION SELECT contentQuest FROM questtbl');
 print_r($result);
 ?>
 
