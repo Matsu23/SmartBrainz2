@@ -47,7 +47,7 @@
                 <div class="mx-auto d-block w-75 rounded h-auto" style="background-color:white">
                     <label class="d-block w-100" style="background-color:rgb(204, 206, 203);font-size:1.5rem;">Descrição:</label>
                     <textarea name='desc' class="mx-auto d-block w-100 rounded h-auto descriptiontext" style="font-size:2rem;border-style:none;resize: none;" >Olá,essa é minha conta smartbrainZ.</textarea>
-                    <div class="w-100 text-right"  style="background-color:rgb(204, 206, 203);font-size:1.5rem;">200</div>
+                    <div class="w-100 text-right"  style="background-color:rgb(204, 206, 203);font-size:1.5rem;"></div>
                     <input type="file" class="d-none" id="imgUp" name="imgUp" accept="image/*"></input>
 					<input type='hidden' name='upload'></input>
                 </div>

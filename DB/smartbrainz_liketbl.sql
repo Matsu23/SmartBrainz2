@@ -18,30 +18,34 @@ USE `smartbrainz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `posttbl`
+-- Table structure for table `liketbl`
 --
 
-DROP TABLE IF EXISTS `posttbl`;
+DROP TABLE IF EXISTS `liketbl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `posttbl` (
-  `idPost` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `liketbl` (
+  `idLike` int NOT NULL AUTO_INCREMENT,
+  `idPost` int DEFAULT NULL,
+  `idCom` int DEFAULT NULL,
   `idUser` int NOT NULL,
-  `contentPost` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL,
-  `topicPost` varchar(45) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`idPost`),
-  KEY `idUser_idx` (`idUser`),
-  CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+  PRIMARY KEY (`idLike`),
+  KEY `like-post_idx` (`idPost`),
+  KEY `like-user_idx` (`idUser`),
+  KEY `like-com_idx` (`idCom`),
+  CONSTRAINT `like-com` FOREIGN KEY (`idCom`) REFERENCES `comtbl` (`idCom`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `like-post` FOREIGN KEY (`idPost`) REFERENCES `posttbl` (`idPost`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `like-user` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `posttbl`
+-- Dumping data for table `liketbl`
 --
 
-LOCK TABLES `posttbl` WRITE;
-/*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
-/*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
+LOCK TABLES `liketbl` WRITE;
+/*!40000 ALTER TABLE `liketbl` DISABLE KEYS */;
+/*!40000 ALTER TABLE `liketbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -18,30 +18,30 @@ USE `smartbrainz`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `posttbl`
+-- Table structure for table `questtbl`
 --
 
-DROP TABLE IF EXISTS `posttbl`;
+DROP TABLE IF EXISTS `questtbl`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `posttbl` (
-  `idPost` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `questtbl` (
+  `idQuest` int NOT NULL AUTO_INCREMENT,
   `idUser` int NOT NULL,
-  `contentPost` varchar(400) CHARACTER SET utf8mb3 COLLATE utf8_bin NOT NULL,
-  `topicPost` varchar(45) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`idPost`),
-  KEY `idUser_idx` (`idUser`),
-  CONSTRAINT `user-post` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=151 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+  `contentQuest` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  `topicQuest` varchar(45) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`idQuest`),
+  KEY `user-quest_idx` (`idUser`),
+  CONSTRAINT `user-quest` FOREIGN KEY (`idUser`) REFERENCES `usertbl` (`idUser`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `posttbl`
+-- Dumping data for table `questtbl`
 --
 
-LOCK TABLES `posttbl` WRITE;
-/*!40000 ALTER TABLE `posttbl` DISABLE KEYS */;
-/*!40000 ALTER TABLE `posttbl` ENABLE KEYS */;
+LOCK TABLES `questtbl` WRITE;
+/*!40000 ALTER TABLE `questtbl` DISABLE KEYS */;
+/*!40000 ALTER TABLE `questtbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

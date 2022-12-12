@@ -124,8 +124,11 @@ function createSubcomment(){
 		if((Create( $fields, $values, $table))==false){
 			
 		}else{
+			$_SESSION['lvl']=$_SESSION['lvl']+100;
+			$_SESSION['exp']=$_SESSION['lvl']+1;
 			
 			echo "<script>window.location.href = 'post.php?PID=".$PIDSC."';</script>";
+			
 		}
 
 	}

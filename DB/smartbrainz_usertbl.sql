@@ -32,10 +32,12 @@ CREATE TABLE `usertbl` (
   `userImg` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_bin DEFAULT 'UserData/Default/icon.png',
   `userDescription` varchar(500) COLLATE utf8_bin DEFAULT 'Olá,essa é minha conta smartbrainZ',
   `userComplete` tinyint NOT NULL DEFAULT '0',
+  `userLevel` int DEFAULT '0',
+  `userExp` int DEFAULT '0',
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `userName_UNIQUE` (`userName`),
   UNIQUE KEY `userMail_UNIQUE` (`userMail`)
-) ENGINE=InnoDB AUTO_INCREMENT=176 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8mb3 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +46,6 @@ CREATE TABLE `usertbl` (
 
 LOCK TABLES `usertbl` WRITE;
 /*!40000 ALTER TABLE `usertbl` DISABLE KEYS */;
-INSERT INTO `usertbl` VALUES (157,'teste','mail@teste.com','senha123','UserData/teste/avatar.png','Olá,essa é minha conta smartbrainZ',1);
 /*!40000 ALTER TABLE `usertbl` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-11 18:24:26
+-- Dump completed on 2022-12-12 16:56:05

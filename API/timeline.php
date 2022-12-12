@@ -293,7 +293,7 @@ function getSubComentario($comId){
 						echo "<a href='profile.php?UID=".$subcom[$x]['idUser']."'>";
 						echo $subcom[$x]['userName'];
 						echo "</a>";
-						echo "<span>Publicou um pensamento</span>.   ";
+						echo "<span>Comentou</span>.   ";
 						echo "<p>".$subcom[$x]['contentCom']."</p>";
 					echo "</div>";
 

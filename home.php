@@ -135,7 +135,7 @@ img {
                 <div class="m-5 " style="font-size:14px;font-weight:bold;">
                     
                     <div  style=" border-radius:100px;margin-right: 15px;font-size:1.5em;"> 
-                        <img src="<?php echo $_SESSION['avatar']; ?>" style="width:100px;border-radius:100px;" class=" pe-5 "/></img><b><?php echo $_SESSION["User"] ?></b><span style="font-size:2em;color:#617881;">LV <?php echo $_SESSION['lvl']?></span>
+                    <img src="<?php echo $_SESSION['avatar']; ?>" style="width:100px;border-radius:100px;" class=" pe-5 "/></img><b><?php echo $_SESSION["User"] ?></b><span style="font-size:2em;color:#617881;">LV <?php echo $_SESSION['lvl']?></span>
                         <div id="progressbar" style="background-color: black;border-radius: 13px;padding: 3px;">
                             <div style="background-color: orange;width:<?php echo $_SESSION['exp']?>%;height: 20px;border-radius: 10px;"></div>
                         </div>
@@ -368,9 +368,9 @@ img {
 
     <div class="col">
         <div style="position:fixed;">
-            <ul>
+           <ul>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/homeIcon.png' width="90px"><a href='home.php' style='color:inherit;text-decoration:none;'>Home</a></li>
-                <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/profile.png' width="90px">Perfil</li>
+                <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/profile.png' width="90px"><a href="profile.php?UID=<?PHP echo $_SESSION['ID']?>" style='color:inherit;text-decoration:none;'>Perfil</a></li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/group.png' width="90px">Grupos</li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/bookIcon.png' width="90px">Anotações</li>
                 <li style="font-size:3em;list-style-type: none;"><img src='Media/Img/flashcar.png' width="90px">FlashCards</li>
