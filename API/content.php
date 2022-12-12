@@ -1,5 +1,66 @@
 <?php
 include_once('crud.php');
+include_once('sessionManeger.php');
+like();
+function like(){
+	include_once('perfil.php');
+
+	if (isset($_POST["like"])){
+		$userId=$_SESSION["ID"];
+		$id=$_POST["like"];
+		$table="liketbl";
+		
+		
+		if($_POST["tipo"]=='post'){
+			$fields = array("idUser","idPost");
+			$tipo='post';
+			$values = array($userId,$id);
+			if(getLikes($id,$tipo)==0){
+				if((Create( $fields, $values, $table))==false){
+					echo "<script>alert('erro realizado com sucesso');</script>";
+				
+				}else{
+				
+				}
+
+			}else{
+				echo "voce ja likou e agr vai deslikar";
+				delete( $table,"WHERE idUser='".$userId."' AND idPost='".$id."'");
+
+			}
+			
+			
+		}else if($_POST["tipo"]=='com'){
+			$fields = array("idUser","idCom");
+			$tipo='com';
+			$values = array($userId,$id);
+			if(getLikes($id,$tipo)==0){
+				if((Create( $fields, $values, $table))==false){
+					echo "<script>alert('erro realizado com sucesso');</script>";
+				
+				}else{
+				
+				}
+
+			}else{
+				echo "voce ja likou e agr vai deslikar";
+				delete( $table,"WHERE idUser='".$userId."' AND idCom='".$id."'");
+
+			}
+
+		}
+
+			
+
+	}
+		
+
+
+}
+
+
+
+
 
 function createPost(){
 	if (isset($_POST["post"])){
@@ -35,12 +96,13 @@ function createComment(){
 		$idpost=$_GET["PID"];
 		$fields = array("idUser","contentCom",'idPost');
 		$table="comtbl";
+		$PID=$_POST["postID"];;
 		$values = array($userId,$comment,$idpost);
 		if((Create( $fields, $values, $table))==false){
 			echo "<script>alert('erro realizado com sucesso');</script>";
 		}else{
 			echo "<script>alert('cadastro realizado com sucesso');</script>";
-			header("Refresh:0;");
+			echo "<script>window.location.href = 'post.php?PID=".$PID."';</script>";
 		}
 		
 	
@@ -54,12 +116,13 @@ function createSubcomment(){
 		$idcoment=$_POST["idsubcomment"];
 		$fields = array("idUser","contentCom",'idTopCom');
 		$table="comtbl";
+		$PIDSC=$_POST["subcompostID"];
 		$values = array($userId,$subcomment,$idcoment);
 		if((Create( $fields, $values, $table))==false){
 			echo "<script>alert('erro realizado com sucesso');</script>";
 		}else{
 			echo "<script>alert('subcomentario realizado com sucesso');</script>";
-			header("Refresh:0;");
+			echo "<script>window.location.href = 'post.php?PID=".$PIDSC."';</script>";
 		}
 
 	}

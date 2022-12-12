@@ -7,6 +7,8 @@ include_once('API/sessionManeger.php');
 include_once('API/content.php');
 include_once('API/timeline.php');
 
+
+
 createPost();
 if((testLogin())=="creating"){
 	echo "<script>window.location.href = 'creatingAccount.php';</script>";
@@ -118,6 +120,7 @@ img {
 }
 }
     </style>
+    <script src='JS/Like.js'></script>
 
 </head>
 <body style='background-color:#A59BE2;overflow-x:hidden'>

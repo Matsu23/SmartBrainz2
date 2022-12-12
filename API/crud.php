@@ -52,7 +52,7 @@ function Create(array $campos, array $valores, $tabela){
 
 
 
-function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=null,$limit=null,$offset=null){
+function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=null,$limit=null,$offset=null,$group=null){
 	$sql = "select ";
 	if(!isset($select) ){
 		$sql .=  "*";
@@ -66,7 +66,9 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 			}
 		}
 	}
-	$sql .= " FROM ".$tabela." ";
+	
+	$sql .= " FROM ";
+	$sql .=$tabela." ";
 	
 	
 	
@@ -80,7 +82,16 @@ function read($tabela,$condition='',$join=0,array $select=null,array $joinIndex=
 			$sql .="OFFSET ".$offset;
 			
 		}
+
+		
+
 		$sql .=" ".$condition."";
+
+		if($group!=null){
+			$sql .="GROUP BY ".$group;
+
+		}
+
 		$sql .=";";
 		if (mysqli_num_rows(($queryResult=Executar($sql))) > 0) {
 			$data = array();
@@ -161,6 +172,15 @@ function update(array $campos, array $valores, $tabela,$condition){
 	echo "<br>";
 	return Executar($sql);
 }
+
+function delete( $tabela,$condition){
+	$sql = "DELETE FROM $tabela \n";
+	$sql .= "\n ".$condition;
+	return Executar($sql);
+
+}
+
+
 
 
 ?>

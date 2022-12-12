@@ -39,7 +39,7 @@ function getProfile(){
 		
 		$profile=read($tabela,$condition);
 		if($profile!=false){
-			print_r($profile);
+			return $profile;
 		}else{
 			echo "usuario não encontrado";
 		}
@@ -72,7 +72,11 @@ function cadastro(){
 		}else{
 			if(mkdir('./UserData/'.$name)) {
 				copy('./UserData/Default/avatar.png','UserData/'.$name.'/avatar.png' );
+			
+
+				
 			}
+		
 			echo "<script>alert('cadastro realizado com sucesso');</script>";
 			$data = array($mail,$pass,'UserData/'.$name.'/avatar.png');
 			return $data;
@@ -103,6 +107,10 @@ function setTopicos(){
 }
 
 
+
+
+
+
 function getTopicos(){
 	include_once('sessionManeger.php');
 	$topicos=file_get_contents('UserData/'.$_SESSION["User"].'/topicos.json' );
@@ -124,6 +132,7 @@ function logIn(){
 				include_once('sessionManeger.php');
 				loginSession($userTbl[0]['idUser'],$userTbl[0]['userName'],$userTbl[0]['userComplete'],$userTbl[0]['userImg']);
 				$_SESSION['topics']=getTopicos();
+				$_SESSION['likes']=getLikes();
 				}
 		}
 		if (isset($_POST["userCadastro"]) && !isset($_POST["mail"])){
@@ -160,6 +169,80 @@ function finishCadastro(){
 		echo "<script>window.location.href = 'home.php';</script>";
 	}
 }
+
+function getLikes($id=null,$tipo=null){
+	$userid = $_SESSION["ID"];
+	$tabela='liketbl';
+	if($id==null){
+		$condition = "WHERE idUser='".$userid."'";
+
+	}else{
+		if($tipo=='post'){
+			$condition = "WHERE idUser='".$userid."' AND idPost='".$id."'";
+
+		}
+		if($tipo=='com'){
+			$condition = "WHERE idUser='".$userid."' AND idCom='".$id."'";
+		}
+
+	}
+	$likes=read($tabela,$condition,0,null,null,null,null,null);
+	if($likes!=false){
+		return $likes;
+
+	}else{
+		return false;
+
+	}
+	
+}
+
+function getProfileActivity($id){
+	$id=157;
+	$condition="WHERE idUser='".$id."'";
+	$posts=read('posttbl',$condition,1,[ 'usertbl.idUser','posttbl.idPost','usertbl.userImg','usertbl.userName','posttbl.contentPost'],['usertbl','usertbl.idUser','posttbl.idUser']);
+	print_r($posts);
+		/*if(is_array($posts)){
+			for ($x = 0; $x <= count($posts)-1; $x++){
+				
+				echo "<a href='post.php?PID=".$posts[$x]['idPost']."'>";
+				echo "<div class='tweet-wrap'>";
+				echo "<img src='".$posts[$x]['userImg']."' alt='' class='avator'>";
+					echo " <div class='tweet-header-info'>";
+					echo "<a href='profile.php?UID=".$posts[$x]['idUser']."'>";
+					echo $posts[$x]['userName'];
+					echo "</a>";
+					echo "<span>Publicou um pensamento</span>. <span class='data' style='font-weight:normal;color:black;'>Data</span>";
+					echo "<p>".$posts[$x]['contentPost']."</p>";
+					echo "</div>";
+
+				echo "<div class='tweet-info-counts'>";
+					echo "<div class='comments'>";
+						echo " <svg class='feather feather-message-circle sc-dnqmqq jxshSx' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'></path></svg>";
+						echo " <div class='comment-count'>"."<a href='post.php?PID=".$posts[$x]['idPost']."'>".getCommentNumber($posts[$x]['idPost'])."</a></div>";
+					echo "</div>";
+					 
+					echo " <div class='likes' onclick=\"like('".$posts[$x]['idPost']."','post','home.php')\">";
+						if(getLikes($posts[$x]['idPost'],'post')>0){
+							echo "<svg class='feather feather-heart sc-dnqmqq jxshSx' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='red' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg>";
+
+						}else{
+							echo "<svg class='feather feather-heart sc-dnqmqq jxshSx' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'></path></svg>";
+
+						}
+						
+						
+						echo " <div class='likes-count'>" .getPostLikes($posts[$x]['idPost'])."</div>";
+					echo "</div>";
+				echo "</div></div>";
+				echo "</a>";
+			}
+
+echo 'b';
+}*/
+}
+
+
 
 
 
